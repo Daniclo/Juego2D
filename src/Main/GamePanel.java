@@ -1,32 +1,31 @@
 package Main;
 
+import Entidades.Jugador;
+
 import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
 
     //Ajustes de la pantalla
-    final int tamañoSprites = 16; //16x16 píxeles.
+    final int tamanyoSprites = 16; //16x16 píxeles.
     final int scale = 3; //16x16 es una resolución muy baja así que lo escalamos al triple de su tamaño para mostrarlo.
-    final int tamañoFinalSprites = tamañoSprites*scale; //48x48 píxeles.
+    public final int tamanyoFinalSprites = tamanyoSprites *scale; //48x48 píxeles.
 
     //Estas 2 variables deciden el número de tiles (48x48) que conforman la pantalla.
     final int numMaxColumnas = 24;
     final int numMaxFilas = 18;
 
     //Multiplicando estas filas y columnas por el tamaño de un tile obtenemos el largo y ancho.
-    final int anchoPantalla = tamañoFinalSprites*numMaxColumnas;
-    final int altoPantalla = tamañoFinalSprites*numMaxFilas;
+    final int anchoPantalla = tamanyoFinalSprites *numMaxColumnas;
+    final int altoPantalla = tamanyoFinalSprites *numMaxFilas;
 
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
 
     InputsTeclado inputs = new InputsTeclado();
     Thread gameThread;
+    Jugador jugador = new Jugador(this,inputs);
 
-    //Sobre el jugador
-    int jugadorX = 100;
-    int jugadorY = 100;
-    int velocidadJugador = 4;
 
     //Constructor de ventanas de juego
     public GamePanel(){
@@ -47,7 +46,6 @@ public class GamePanel extends JPanel implements Runnable{
 
             double intervaloEscritura = (double) 1000000000 /fps; // 1/60 segundos, se actualiza la pantalla 60 veces en un segundo.
             double siguienteEscritura = System.nanoTime() + intervaloEscritura; //Establecemos una espera de 1/60 segundos entre escritura y escritura.
-
 
             //Mientras se esté ejecutando este hilo, van a ocurrir 2 acciones de manera constante:
             //1. Actualizar la información del juego
@@ -76,18 +74,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void actualizar(){ //En este método vamos a registrar los datos de movimiento de los sprites por la pantalla
                                 //para enviarlos al método paintComponent y que los actualice.
 
-        if (inputs.upPressed){ //Mover arriba
-            jugadorY -= velocidadJugador;
-        }
-        if (inputs.downPressed){ //Mover abajo
-            jugadorY += velocidadJugador;
-        }
-        if (inputs.leftPressed){ //Mover izquierda
-            jugadorX -= velocidadJugador;
-        }
-        if (inputs.rightPressed){ //Mover derecha
-            jugadorX += velocidadJugador;
-        }
+        jugador.actualizar(); //Obtener datos del jugador
 
     }
     public void paintComponent(Graphics g){
@@ -96,8 +83,8 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        g2.setColor(Color.white);
-        g2.fillRect(jugadorX,jugadorY,tamañoFinalSprites,tamañoFinalSprites); //Rectángulo de 48x48 en la posición inicial del jugador
+        jugador.dibujar(g2); //Dibujar al jugador
+
         g2.dispose();
     }
 }

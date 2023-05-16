@@ -12,12 +12,12 @@ public class Main {
         window.setTitle("Juego 2D");
 
         GamePanel gamePanel = new GamePanel();
-        window.add(gamePanel);
-        window.pack();
+        window.add(gamePanel); //El game panel es un nodo, lo añadimos al "stage" que en este caso es window.
+        window.pack(); //Ajustar el tamaño de la ventana al tamaño óptimo de los nodos que contiene.
 
-        window.setLocationRelativeTo(null);
+        window.setLocationRelativeTo(null); //Mostrar la pantalla en el centro
         window.setVisible(true);
 
-        gamePanel.iniciarRelojDeJuego();
+        gamePanel.iniciarRelojDeJuego(); //Iniciar el Thread
     }
 }

@@ -4,16 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Juego2D.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Movimiento del jugador y game loop a 60FPS">
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Juego2D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Juego2D.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +36,19 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="559d91e4-4e05-4d5b-8d93-14acef571180" />
+        <option name="url" value="https://github.com/Daniclo/Juego2D.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="ProjectId" id="2PnXzFXZhfB26FSSF36hPGwLuSA" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -44,13 +63,25 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/jugador",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Juego" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
@@ -68,11 +99,29 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1684094080190</updated>
-      <workItem from="1684094081190" duration="8128000" />
+      <workItem from="1684094081190" duration="8257000" />
+      <workItem from="1684149424183" duration="472000" />
+      <workItem from="1684157014961" duration="574000" />
+      <workItem from="1684160191473" duration="7000" />
+      <workItem from="1684160335961" duration="4000" />
+      <workItem from="1684185533073" duration="3075000" />
+      <workItem from="1684224099182" duration="4131000" />
     </task>
+    <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
+      <created>1684102512944</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1684102512944</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Movimiento del jugador y game loop a 60FPS" />
+    <option name="LAST_COMMIT_MESSAGE" value="Movimiento del jugador y game loop a 60FPS" />
   </component>
 </project>

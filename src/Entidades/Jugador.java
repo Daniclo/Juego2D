@@ -69,7 +69,7 @@ public class Jugador extends Entidad{
                 x += speed;
             }
             if (inputs.spacePressed){ //Correr más rápido al pulsar espacio
-                speed = 8;
+                speed = 7;
             }else {
                 speed = 4;
             }

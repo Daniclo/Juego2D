@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Movimiento del jugador y game loop a 60FPS">
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Sprites del personaje introducidos y animados">
+      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_agua.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_hierba_helada.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_tierra.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/Tile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Juego2D.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Juego2D.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +56,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/jugador",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/tiles",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -76,6 +69,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\tiles" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -105,7 +99,8 @@
       <workItem from="1684160191473" duration="7000" />
       <workItem from="1684160335961" duration="4000" />
       <workItem from="1684185533073" duration="3075000" />
-      <workItem from="1684224099182" duration="4131000" />
+      <workItem from="1684224099182" duration="4161000" />
+      <workItem from="1684233808009" duration="1767000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -114,7 +109,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684102512944</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Sprites del personaje introducidos y animados">
+      <created>1684232995554</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1684232995554</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -122,6 +124,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Movimiento del jugador y game loop a 60FPS" />
-    <option name="LAST_COMMIT_MESSAGE" value="Movimiento del jugador y game loop a 60FPS" />
+    <MESSAGE value="Sprites del personaje introducidos y animados" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sprites del personaje introducidos y animados" />
   </component>
 </project>

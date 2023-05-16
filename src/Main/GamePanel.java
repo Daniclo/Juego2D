@@ -1,6 +1,7 @@
 package Main;
 
 import Entidades.Jugador;
+import Tiles.TileManager;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,18 +14,19 @@ public class GamePanel extends JPanel implements Runnable{
     public final int tamanyoFinalSprites = tamanyoSprites *scale; //48x48 píxeles.
 
     //Estas 2 variables deciden el número de tiles (48x48) que conforman la pantalla.
-    final int numMaxColumnas = 24;
-    final int numMaxFilas = 18;
+    public final int numMaxColumnas = 24;
+    public final int numMaxFilas = 18;
 
     //Multiplicando estas filas y columnas por el tamaño de un tile obtenemos el largo y ancho.
-    final int anchoPantalla = tamanyoFinalSprites *numMaxColumnas;
-    final int altoPantalla = tamanyoFinalSprites *numMaxFilas;
+    public final int anchoPantalla = tamanyoFinalSprites *numMaxColumnas;
+    public final int altoPantalla = tamanyoFinalSprites *numMaxFilas;
 
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
 
     InputsTeclado inputs = new InputsTeclado();
     Thread gameThread;
     Jugador jugador = new Jugador(this,inputs);
+    TileManager tileManager = new TileManager(this);
 
 
     //Constructor de ventanas de juego
@@ -83,7 +85,9 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
+        tileManager.dibujar(g2); //Dibuja un tile en la ventana. Siempre se dibujan antes los tiles que las entidades
         jugador.dibujar(g2); //Dibujar al jugador
+
 
         g2.dispose();
     }

@@ -25,8 +25,8 @@ public class Jugador extends Entidad{
     }
 
     public void valoresPorDefecto(){ //Definimos una serie de atributos iniciales para el jugador
-        x = 100;
-        y = 100;
+        x = 556;
+        y = 720;
         speed = 4;
         apuntandoA = "abajo";
     }
@@ -73,6 +73,10 @@ public class Jugador extends Entidad{
             }else {
                 speed = 4;
             }
+
+            //System.out.println("x: "+x);
+            //System.out.println("y: "+y);
+
 
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
             if (contadorSprite > 15){ //Este número determina la velocidad a la que cambian los sprites. En este caso cada 15 frames.

@@ -2,7 +2,6 @@ package Entidades;
 
 import Main.GamePanel;
 import Main.InputsTeclado;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -14,19 +13,27 @@ public class Jugador extends Entidad{
     GamePanel gamePanel;
     InputsTeclado inputs;
 
+    public final int xCamara;
+    public final int yCamara;
+
     public Jugador(GamePanel gamePanel, InputsTeclado inputs){ //Instanciamos los inputs y el panel de juego para poder
                                                                 //utilizarlos en esta clase
 
         this.gamePanel = gamePanel;
         this.inputs = inputs;
 
+        xCamara = gamePanel.anchoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
+        yCamara = gamePanel.altoPantalla/2 - - (gamePanel.tamanyoFinalSprites/2);
+
+        areaColision = new Rectangle(8,16,32,32); //Estos valores definen el area de colisión del jugador
+
         valoresPorDefecto(); //Cuando se construye un objeto jugador, se establecen estos valores
         getSpritesJugador(); //Se llama al método cada vez que se construye un jugador para asignarle sprites
     }
 
     public void valoresPorDefecto(){ //Definimos una serie de atributos iniciales para el jugador
-        x = 556;
-        y = 720;
+        xMundo = 744;
+        yMundo = 909;
         speed = 4;
         apuntandoA = "abajo";
     }
@@ -52,21 +59,18 @@ public class Jugador extends Entidad{
     public void actualizar(){
         if (inputs.upPressed || inputs.downPressed || inputs.rightPressed || inputs.leftPressed){ //Este if hace que las animaciones de movimiento no se activen mientras
                                                                                                     //el personaje está quieto.
-            if (inputs.upPressed){ //Mover arriba
+
+            if (inputs.upPressed){ //Apuntar arriba. Comprueba que no hay colisiones antes de avanzar
                 apuntandoA = "arriba";
-                y -= speed;
             }
-            if (inputs.downPressed){ //Mover abajo
+            if (inputs.downPressed){ //Apuntar abajo. Comprueba que no hay colisiones antes de avanzar
                 apuntandoA = "abajo";
-                y += speed;
             }
-            if (inputs.leftPressed){ //Mover izquierda
+            if (inputs.leftPressed){ //Apuntar izquierda. Comprueba que no hay colisiones antes de avanzar
                 apuntandoA = "izquierda";
-                x -= speed;
             }
-            if (inputs.rightPressed){ //Mover derecha
+            if (inputs.rightPressed){ //Apuntar derecha. Comprueba que no hay colisiones antes de avanzar
                 apuntandoA = "derecha";
-                x += speed;
             }
             if (inputs.spacePressed){ //Correr más rápido al pulsar espacio
                 speed = 7;
@@ -74,8 +78,28 @@ public class Jugador extends Entidad{
                 speed = 4;
             }
 
-            //System.out.println("x: "+x);
-            //System.out.println("y: "+y);
+            System.out.println("x: " + xMundo);
+            System.out.println("y: " + yMundo);
+
+            colisionOn = false;
+            gamePanel.checkColisiones.checkTile( this); //Le pasamos esta entidad (en este caso el jugaddor) al check de colisiones en cada actualización
+
+            if (!colisionOn){ //Solo habilitamos que se mueva el jugador mientras que el valor de colisión sea falso
+                switch (apuntandoA){
+                    case "arriba":
+                        yMundo -= speed;
+                        break;
+                    case "abajo":
+                        yMundo += speed;
+                        break;
+                    case "izquierda":
+                        xMundo -= speed;
+                        break;
+                    case "derecha":
+                        xMundo += speed;
+                        break;
+                }
+            }
 
 
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
@@ -126,6 +150,6 @@ public class Jugador extends Entidad{
                 }
             }
         }
-        g2.drawImage(image,x,y, gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites, null);
+        g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites, null);
     }
 }

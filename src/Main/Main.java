@@ -18,6 +18,7 @@ public class Main {
         window.setLocationRelativeTo(null); //Mostrar la pantalla en el centro
         window.setVisible(true);
 
+        gamePanel.setUpGame();
         gamePanel.iniciarRelojDeJuego(); //Iniciar el Thread
     }
 }

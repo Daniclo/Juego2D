@@ -13,5 +13,6 @@ public class Entidad {
     public int contadorSprite = 0; //Este contador permite cambiar de sprites cada cierto tiempo
     public int spriteActual = 1; //Indica que sprite está usando la entidad actualmente
     public Rectangle areaColision; //Define el area de colisiones de la entidad para determinar cuando choca contra otros elementos
+    public int areaColisionDefaultX, areaColisionDefaultY;
     public boolean colisionOn = false; //
 }

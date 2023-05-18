@@ -1,6 +1,7 @@
 package Main;
 
 import Entidades.Jugador;
+import Items.Item;
 import Tiles.TileManager;
 import javax.swing.*;
 import java.awt.*;
@@ -33,6 +34,9 @@ public class GamePanel extends JPanel implements Runnable{
     public Jugador jugador = new Jugador(this,inputs);
     TileManager tileManager = new TileManager(this);
     public CheckColisiones checkColisiones = new CheckColisiones(this);
+    public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
+    AssetSetter assetSetter = new AssetSetter(this); //Instanciamos un manejador de objetos
+    public CheckInteraccion checkInteraccion = new CheckInteraccion(this);
 
 
     //Constructor de ventanas de juego
@@ -42,6 +46,12 @@ public class GamePanel extends JPanel implements Runnable{
         this.setDoubleBuffered(true); //Activar el doble buffer (rendimiento)
         this.addKeyListener(inputs); //Asociar nuestra clase inputsTeclado con la pantalla para asignar controles
         this.setFocusable(true); //Es necesario que este componente sea focuseable para poder registrar inputs
+    }
+
+    public void setUpGame(){ //Este método sirve para colocar en el juego ciertos elementos
+
+        assetSetter.setItems();
+
     }
 
     public void iniciarRelojDeJuego(){ //Al llamar a este método comienza un loop que ejecuta el método run
@@ -91,8 +101,16 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
-        tileManager.dibujar(g2); //Dibuja un tile en la ventana. Siempre se dibujan antes los tiles que las entidades
-        jugador.dibujar(g2); //Dibujar al jugador
+        tileManager.dibujar(g2); //Dibujar el mapa. Siempre se dibujan los tiles por encima de las entidades y objetos.
+
+        //Dibuja todos los items del array de items siempre que no sean nulos.
+        for (int i=0;i< items.length;i++){
+            if (items[i] != null){
+                items[i].dibujar(g2, this);
+            }
+        }
+
+        jugador.dibujar(g2); //Dibujar al jugador.
 
 
         g2.dispose();

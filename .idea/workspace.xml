@@ -4,24 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Primer mapa creado">
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_arbusto.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_arena.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_cactus.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_palmera.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_arena.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_arena.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_hierba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_tierra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_hierba.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/tiles/Tile_roca_tierra.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Añadida cámara y colisiones">
+      <change afterPath="$PROJECT_DIR$/Resources/items/Pez_globo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Resources/maps/Mapa1.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/maps/Mapa1.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_hierba_helada.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/tiles/Tile_hierba.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +62,7 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/Resources/tiles&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/Resources/items&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -79,6 +75,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\tiles" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
@@ -119,7 +116,16 @@
       <workItem from="1684269144716" duration="3043000" />
       <workItem from="1684272481962" duration="904000" />
       <workItem from="1684274144871" duration="28000" />
-      <workItem from="1684308764505" duration="9771000" />
+      <workItem from="1684308764505" duration="9839000" />
+      <workItem from="1684329635898" duration="170000" />
+      <workItem from="1684343246942" duration="26000" />
+      <workItem from="1684343301469" duration="759000" />
+      <workItem from="1684344133362" duration="200000" />
+      <workItem from="1684346213042" duration="621000" />
+      <workItem from="1684354549932" duration="938000" />
+      <workItem from="1684359268293" duration="1652000" />
+      <workItem from="1684400461434" duration="8193000" />
+      <workItem from="1684416460642" duration="2969000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -149,7 +155,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684272273171</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Añadida cámara y colisiones">
+      <created>1684321404146</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1684321404146</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,6 +173,7 @@
     <MESSAGE value="Sprites del personaje introducidos y animados" />
     <MESSAGE value="Tiles importadas" />
     <MESSAGE value="Primer mapa creado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Primer mapa creado" />
+    <MESSAGE value="Añadida cámara y colisiones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida cámara y colisiones" />
   </component>
 </project>

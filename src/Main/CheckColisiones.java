@@ -36,7 +36,6 @@ public class CheckColisiones {
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){ //Comprobamos si alguno de los 2 tiles de arriba es sólido
                     e.colisionOn = true;
                 }
-
                 break;
             case "abajo":
 
@@ -47,7 +46,6 @@ public class CheckColisiones {
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
                     e.colisionOn = true;
                 }
-
                 break;
             case "izquierda":
 
@@ -58,7 +56,6 @@ public class CheckColisiones {
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
                     e.colisionOn = true;
                 }
-
                 break;
             case "derecha":
 
@@ -69,10 +66,72 @@ public class CheckColisiones {
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
                     e.colisionOn = true;
                 }
-
                 break;
         }
+    }
 
+    //Este método va a comprobar si hay un item delante que tiene colisión y en caso de que si, devolver el índice del item
+    public void checkItem(Entidad e){ //Recibimos una entidad para comprobar si colisiona
+
+
+        for (int i=0;i<gamePanel.items.length;i++){
+
+            if (gamePanel.items[i] != null){
+
+                //Conseguimos el área de colisión de la entidad
+                e.areaColision.x = e.xMundo + e.areaColision.x;
+                e.areaColision.y = e.yMundo + e.areaColision.y;
+
+                //Conseguimos el área de colisión del item
+                gamePanel.items[i].areaColision.x = gamePanel.items[i].xMundo + gamePanel.items[i].areaColision.x;
+                gamePanel.items[i].areaColision.y = gamePanel.items[i].yMundo + gamePanel.items[i].areaColision.y;
+
+                switch (e.apuntandoA){ //Como en los tiles, se comprueba donde estará la entidad cuando se mueva hacia delante.
+                                        //Pero aquí usamos el método intersects() de la clase Rectangle  quecomprueba si hay una intersección
+                                        // con otro rectángulo (en este caso, si ambas áreas de colisión se tocan)
+
+                    case "arriba":
+                        e.areaColision.y -= e.speed;
+                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
+                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+                                e.colisionOn = true;
+                            }
+                        }
+                        break;
+                    case "abajo":
+                        e.areaColision.y += e.speed;
+                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
+                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+                                e.colisionOn = true;
+                            }
+                        }
+                        break;
+                    case "izquierda":
+                        e.areaColision.x -= e.speed;
+                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
+                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+                                e.colisionOn = true;
+                            }
+                        }
+                        break;
+                    case "derecha":
+                        e.areaColision.x += e.speed;
+                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
+                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+                                e.colisionOn = true;
+                            }
+                        }
+                        break;
+                }
+                //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
+                //la comprobación, no deben cambiar realmente)
+                e.areaColision.x = e.areaColisionDefaultX;
+                e.areaColision.y = e.areaColisionDefaultY;
+                gamePanel.items[i].areaColision.x = gamePanel.items[i].areaColisionDefaultX;
+                gamePanel.items[i].areaColision.y = gamePanel.items[i].areaColisionDefaultY;
+            }
+
+        }
     }
 
 }

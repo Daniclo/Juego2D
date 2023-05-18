@@ -16,6 +16,9 @@ public class Jugador extends Entidad{
     public final int xCamara;
     public final int yCamara;
 
+    //OBJETOS QUE PUEDE CONSEGUIR EL JUGADOR
+    public boolean tienePezGlobo = false;
+
     public Jugador(GamePanel gamePanel, InputsTeclado inputs){ //Instanciamos los inputs y el panel de juego para poder
                                                                 //utilizarlos en esta clase
 
@@ -26,6 +29,9 @@ public class Jugador extends Entidad{
         yCamara = gamePanel.altoPantalla/2 - - (gamePanel.tamanyoFinalSprites/2);
 
         areaColision = new Rectangle(8,16,32,32); //Estos valores definen el area de colisión del jugador
+        //Los valores del área de colisión van a alterar, así que los almacenamos en otras variables para poder acceder de nuevo a ellos
+        areaColisionDefaultX = areaColision.x;
+        areaColisionDefaultY = areaColision.y;
 
         valoresPorDefecto(); //Cuando se construye un objeto jugador, se establecen estos valores
         getSpritesJugador(); //Se llama al método cada vez que se construye un jugador para asignarle sprites
@@ -56,6 +62,10 @@ public class Jugador extends Entidad{
         }
     }
 
+    public void interactuar(){
+
+    }
+
     public void actualizar(){
         if (inputs.upPressed || inputs.downPressed || inputs.rightPressed || inputs.leftPressed){ //Este if hace que las animaciones de movimiento no se activen mientras
                                                                                                     //el personaje está quieto.
@@ -82,25 +92,31 @@ public class Jugador extends Entidad{
             System.out.println("y: " + yMundo);
 
             colisionOn = false;
-            gamePanel.checkColisiones.checkTile( this); //Le pasamos esta entidad (en este caso el jugaddor) al check de colisiones en cada actualización
+
+            gamePanel.checkColisiones.checkTile( this); //Le pasamos esta entidad (en este caso el jugaddor) al check de colisiones de tiles en cada actualización
+
+            //Le pasamos esta entidad al check de colisiones de objetos.
+            gamePanel.checkColisiones.checkItem(this);
 
             if (!colisionOn){ //Solo habilitamos que se mueva el jugador mientras que el valor de colisión sea falso
-                switch (apuntandoA){
-                    case "arriba":
-                        yMundo -= speed;
-                        break;
-                    case "abajo":
-                        yMundo += speed;
-                        break;
-                    case "izquierda":
-                        xMundo -= speed;
-                        break;
-                    case "derecha":
-                        xMundo += speed;
-                        break;
+                if (inputs.upPressed){
+                    yMundo -= speed;
+                }
+                if (inputs.downPressed){
+                    yMundo += speed;
+                }
+                if (inputs.leftPressed){
+                    xMundo -= speed;
+                }
+                if (inputs.rightPressed){
+                    xMundo += speed;
                 }
             }
 
+            if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
+                                    //con el que interactuar
+                gamePanel.checkInteraccion.checkItem(this);
+            }
 
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
             if (contadorSprite > 15){ //Este número determina la velocidad a la que cambian los sprites. En este caso cada 15 frames.

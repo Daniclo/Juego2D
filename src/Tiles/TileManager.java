@@ -133,7 +133,7 @@ public class TileManager {
             int yCamara = yMundo - gamePanel.jugador.yMundo + gamePanel.jugador.yCamara;
 
 
-            //Este bucle hace que solo se dibujen los tiles que se están en la pantalla.
+            //Este bucle hace que solo se dibujen los tiles que están en la pantalla.
             //Sirve para optimizar el renderizado del mapa y no cargarlo entero mientras que
             //no se está mostrando.
             if (xMundo + (gamePanel.tamanyoFinalSprites*2) > gamePanel.jugador.xMundo - gamePanel.jugador.xCamara &&

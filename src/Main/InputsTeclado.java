@@ -10,7 +10,7 @@ public class InputsTeclado implements KeyListener {
 
     //Estos valores booleanos indican cuando una tecla está siendo pulsada o no. Usaremos los métodos para
     //actualizarlos al pulsar y soltar las  teclas.
-    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -36,6 +36,9 @@ public class InputsTeclado implements KeyListener {
         if (code == KeyEvent.VK_SPACE){
             spacePressed = true;
         }
+        if (code == KeyEvent.VK_E){
+            ePressed = true;
+        }
     }
 
     @Override
@@ -57,6 +60,9 @@ public class InputsTeclado implements KeyListener {
         }
         if (code == KeyEvent.VK_SPACE){
             spacePressed = false;
+        }
+        if (code == KeyEvent.VK_E){
+            ePressed = false;
         }
     }
 }

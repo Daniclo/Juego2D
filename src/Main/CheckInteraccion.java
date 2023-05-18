@@ -35,6 +35,7 @@ public class CheckInteraccion {
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
                             int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
                             obtenerObjetos(index, e);
+                        }else {
                         }
                         break;
                     case "abajo":
@@ -43,6 +44,7 @@ public class CheckInteraccion {
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
                                 int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
                                 obtenerObjetos(index, e);
+                            }else {
                             }
                         }
                         break;
@@ -52,6 +54,7 @@ public class CheckInteraccion {
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
                                 int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
                                 obtenerObjetos(index, e);
+                            }else {
                             }
                         }
                         break;
@@ -61,6 +64,7 @@ public class CheckInteraccion {
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
                                 int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
                                 obtenerObjetos(index, e);
+                            }else {
                             }
                         }
                         break;
@@ -69,8 +73,10 @@ public class CheckInteraccion {
                 //la comprobación, no deben cambiar realmente)
                 e.areaColision.x = e.areaColisionDefaultX;
                 e.areaColision.y = e.areaColisionDefaultY;
-                gamePanel.items[i].areaColision.x = gamePanel.items[i].areaColisionDefaultX;
-                gamePanel.items[i].areaColision.y = gamePanel.items[i].areaColisionDefaultY;
+                if (gamePanel.items[i] != null){
+                    gamePanel.items[i].areaColision.x = gamePanel.items[i].areaColisionDefaultX;
+                    gamePanel.items[i].areaColision.y = gamePanel.items[i].areaColisionDefaultY;
+                }
             }
         }
     }
@@ -79,6 +85,7 @@ public class CheckInteraccion {
                                                         //lo que tenga que acontecer según el item
         if (index == 0){
             e.tienePezGlobo = true;
+            gamePanel.items[0] = null;
         }
 
     }

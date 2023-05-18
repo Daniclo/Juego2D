@@ -11,7 +11,7 @@ import java.util.Objects;
 public class Jugador extends Entidad{
 
     GamePanel gamePanel;
-    InputsTeclado inputs;
+    public InputsTeclado inputs;
 
     public final int xCamara;
     public final int yCamara;
@@ -113,11 +113,6 @@ public class Jugador extends Entidad{
                 }
             }
 
-            if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
-                                    //con el que interactuar
-                gamePanel.checkInteraccion.checkItem(this);
-            }
-
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
             if (contadorSprite > 15){ //Este número determina la velocidad a la que cambian los sprites. En este caso cada 15 frames.
                 if (spriteActual == 1){
@@ -127,6 +122,11 @@ public class Jugador extends Entidad{
                 }
                 contadorSprite = 0;
             }
+        }
+        if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
+            //con el que interactuar
+
+            gamePanel.checkInteraccion.checkItem(this);
         }
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización

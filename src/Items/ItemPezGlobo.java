@@ -10,7 +10,7 @@ public class ItemPezGlobo extends Item{
 
     public ItemPezGlobo(){
 
-        nombre = "Pez globo";
+        nombre = "Pez Globo";
         try {
             sprite = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/items/Pez_globo.png")));
         } catch (IOException e) {

@@ -7,6 +7,8 @@ import java.awt.image.BufferedImage;
 
 public class Item {
 
+    //Esta es la clase padre de la que extienden todos los items del juego.
+
     public BufferedImage sprite; //La textura del objeto
     public String nombre; //Nombre del objeto
     public boolean colision; //Si tiene colisión o no

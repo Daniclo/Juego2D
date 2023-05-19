@@ -33,8 +33,8 @@ public class CheckInteraccion {
                     case "arriba":
                         e.areaColision.y -= e.speed;
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-                            int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
-                            obtenerObjetos(index, e);
+                            String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
+                            obtenerObjetos(nombre, e);
                         }else {
                         }
                         break;
@@ -42,8 +42,8 @@ public class CheckInteraccion {
                         e.areaColision.y += e.speed;
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
-                                obtenerObjetos(index, e);
+                                String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
+                                obtenerObjetos(nombre, e);
                             }else {
                             }
                         }
@@ -52,8 +52,8 @@ public class CheckInteraccion {
                         e.areaColision.x -= e.speed;
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
-                                obtenerObjetos(index, e);
+                                String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
+                                obtenerObjetos(nombre, e);
                             }else {
                             }
                         }
@@ -62,8 +62,8 @@ public class CheckInteraccion {
                         e.areaColision.x += e.speed;
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
                             if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                int index = i; //Se almacena el indice del objeto y se manda a otro método que lo manejará
-                                obtenerObjetos(index, e);
+                                String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
+                                obtenerObjetos(nombre, e);
                             }else {
                             }
                         }
@@ -81,12 +81,14 @@ public class CheckInteraccion {
         }
     }
 
-    public void obtenerObjetos(int index, Jugador e){ //Este método comprueba con qué item has interactuado y resuelve
+    public void obtenerObjetos(String nombre, Jugador e){ //Este método comprueba con qué item has interactuado y resuelve
                                                         //lo que tenga que acontecer según el item
-        if (index == 0){
+
+        gamePanel.reproducirSonido(1); //No está bien ajustado este tampoco
+
+        if (nombre.equals("Pez Globo")){
             e.tienePezGlobo = true;
             gamePanel.items[0] = null;
         }
-
     }
 }

@@ -10,6 +10,9 @@ import java.util.Objects;
 
 public class Jugador extends Entidad{
 
+    //Esta clase controla lo relacionado con el personaje protagonista del juego, manejado por el jugador, y sus
+    //interacciones con el resto del juego.
+
     GamePanel gamePanel;
     public InputsTeclado inputs;
 

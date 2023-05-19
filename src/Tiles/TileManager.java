@@ -11,6 +11,8 @@ import java.util.Objects;
 
 public class TileManager {
 
+    //Esta clase gestiona la carga del mapa y la distribución de tiles.
+
     GamePanel gamePanel;
     public Tile[] tile; //Este array almacena todos los tiles que puede cargar el juego.
     public int[][] mapTileNum; //Este array de ints nos sirve para leer y cargar los mapas

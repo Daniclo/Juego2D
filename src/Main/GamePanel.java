@@ -8,6 +8,9 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable{
 
+    //Esta clase es el root pane en el que se encuentran todos los elementos del juego. Todos los manejadores se inicializan
+    //aquí y también aquí es donde se declara el reloj de juego.
+
     //Ajustes de la pantalla
     final int tamanyoSprites = 16; //16x16 píxeles.
     final int scale = 3; //16x16 es una resolución muy baja así que lo escalamos al triple de su tamaño para mostrarlo.
@@ -24,19 +27,21 @@ public class GamePanel extends JPanel implements Runnable{
     //Ajustes de los mapas:
     public final int maxMundoColumna = 32;
     public final int maxMundoFila = 36;
-    public final int anchoMundo = tamanyoFinalSprites * maxMundoColumna;
-    public final int altoMundo = tamanyoFinalSprites * maxMundoFila;
 
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
 
+    //Clases que gestionan el sistema de juego
     InputsTeclado inputs = new InputsTeclado();
     Thread gameThread;
-    public Jugador jugador = new Jugador(this,inputs);
+    Sonido sonido = new Sonido();
     TileManager tileManager = new TileManager(this);
     public CheckColisiones checkColisiones = new CheckColisiones(this);
-    public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
     AssetSetter assetSetter = new AssetSetter(this); //Instanciamos un manejador de objetos
     public CheckInteraccion checkInteraccion = new CheckInteraccion(this);
+
+    //Clases que gestionan las entidades e items
+    public Jugador jugador = new Jugador(this,inputs);
+    public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
 
 
     //Constructor de ventanas de juego
@@ -51,7 +56,7 @@ public class GamePanel extends JPanel implements Runnable{
     public void setUpGame(){ //Este método sirve para colocar en el juego ciertos elementos
 
         assetSetter.setItems();
-
+        reproducirMusica(0);
     }
 
     public void iniciarRelojDeJuego(){ //Al llamar a este método comienza un loop que ejecuta el método run
@@ -68,6 +73,10 @@ public class GamePanel extends JPanel implements Runnable{
             //Mientras se esté ejecutando este hilo, van a ocurrir 2 acciones de manera constante:
             //1. Actualizar la información del juego
             actualizar();
+
+            //Con estas 2 líneas, se puede ver los frames de la canción (para fijar los loops)
+            //int x = getFrames();
+            //System.out.println(x);
 
             //2. Actualizar la pantalla (printear los sprites actualizados)
             repaint(); //Llamada al método paintComponent
@@ -114,5 +123,36 @@ public class GamePanel extends JPanel implements Runnable{
 
 
         g2.dispose();
+    }
+
+
+    //Métodos para reproducir sonidos (de la clase Sonido)
+    public void reproducirMusica(int i){
+
+        sonido.setFile(i);
+        sonido.play();
+        if (i == 0){
+            sonido.loopMundo1();
+        }
+    }
+
+    public void detenerMusica(){
+
+        sonido.stop();
+
+    }
+
+    public void reproducirSonido(int i){
+
+        sonido.setFile(i);
+        sonido.play();
+
+    }
+
+    public int getFrames(){
+
+        int x = sonido.getFrames();
+
+        return x;
     }
 }

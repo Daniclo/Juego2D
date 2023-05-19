@@ -4,6 +4,9 @@ import Entidades.Entidad;
 
 public class CheckColisiones {
 
+    //Esta clase permite determinar que bloques u objetos son sólidos y cuales no lo son y gestiona las colisiones entre
+    //entidades y estos bloques u objetos.
+
     GamePanel gamePanel;
     public CheckColisiones(GamePanel gamePanel){
         this.gamePanel = gamePanel;

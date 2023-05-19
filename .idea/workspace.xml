@@ -4,10 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Añadidos objetos y gestor de interacciones">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Arreglado bug interacciones">
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Loop Mundo 1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Pre Loop Mundo 1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Recoger objeto.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Tema-mundo-1.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,30 +55,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/Resources/items&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\tiles" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\maps" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D" />
     </key>
@@ -115,7 +127,11 @@
       <workItem from="1684359268293" duration="1652000" />
       <workItem from="1684400461434" duration="8193000" />
       <workItem from="1684416460642" duration="3065000" />
-      <workItem from="1684419643272" duration="569000" />
+      <workItem from="1684419643272" duration="591000" />
+      <workItem from="1684427690673" duration="1827000" />
+      <workItem from="1684435116748" duration="15000" />
+      <workItem from="1684445073377" duration="1392000" />
+      <workItem from="1684483307285" duration="4188000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -159,7 +175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684419517130</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Arreglado bug interacciones">
+      <created>1684420227477</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1684420227477</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,6 +195,7 @@
     <MESSAGE value="Primer mapa creado" />
     <MESSAGE value="Añadida cámara y colisiones" />
     <MESSAGE value="Añadidos objetos y gestor de interacciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Añadidos objetos y gestor de interacciones" />
+    <MESSAGE value="Arreglado bug interacciones" />
+    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug interacciones" />
   </component>
 </project>

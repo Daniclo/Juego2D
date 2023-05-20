@@ -45,6 +45,8 @@ public class Jugador extends Entidad{
         yMundo = 909;
         speed = 4;
         apuntandoA = "abajo";
+        vidaMaxima = 5;
+        vida = vidaMaxima;
     }
 
     public void getSpritesJugador(){ //Inicializamos los sprites del jugador
@@ -126,6 +128,7 @@ public class Jugador extends Entidad{
                 contadorSprite = 0;
             }
         }
+
         if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
             //con el que interactuar
 
@@ -171,4 +174,5 @@ public class Jugador extends Entidad{
         }
         g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites, null);
     }
+
 }

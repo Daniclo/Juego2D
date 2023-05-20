@@ -33,10 +33,12 @@ public class GamePanel extends JPanel implements Runnable{
     //Clases que gestionan el sistema de juego
     InputsTeclado inputs = new InputsTeclado();
     Thread gameThread;
-    Sonido sonido = new Sonido();
+    Sonido musica = new Sonido();
+    Sonido efectos = new Sonido();
     TileManager tileManager = new TileManager(this);
     public CheckColisiones checkColisiones = new CheckColisiones(this);
     AssetSetter assetSetter = new AssetSetter(this); //Instanciamos un manejador de objetos
+    public UserInterface ui = new UserInterface(this);
     public CheckInteraccion checkInteraccion = new CheckInteraccion(this);
 
     //Clases que gestionan las entidades e items
@@ -122,6 +124,10 @@ public class GamePanel extends JPanel implements Runnable{
         jugador.dibujar(g2); //Dibujar al jugador.
 
 
+
+        ui.dibujar(g2); //Esto tiene que estar encima de lo demás siempre. La interfaz lo último.
+
+
         g2.dispose();
     }
 
@@ -129,29 +135,29 @@ public class GamePanel extends JPanel implements Runnable{
     //Métodos para reproducir sonidos (de la clase Sonido)
     public void reproducirMusica(int i){
 
-        sonido.setFile(i);
-        sonido.play();
+        musica.setFile(i);
+        musica.play();
         if (i == 0){
-            sonido.loopMundo1();
+            musica.loopMundo1();
         }
     }
 
     public void detenerMusica(){
 
-        sonido.stop();
+        musica.stop();
 
     }
 
     public void reproducirSonido(int i){
 
-        sonido.setFile(i);
-        sonido.play();
+        efectos.setFile(i);
+        efectos.play();
 
     }
 
     public int getFrames(){
 
-        int x = sonido.getFrames();
+        int x = musica.getFrames();
 
         return x;
     }

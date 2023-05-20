@@ -6,7 +6,7 @@ import java.util.Objects;
 
 public class ItemPezGlobo extends Item{
 
-    //Este item
+    //Este item sirve permite al jugador rodar y destruir rocas al pulsar espacio.
 
     public ItemPezGlobo(){
 

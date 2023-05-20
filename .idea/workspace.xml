@@ -4,20 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Arreglado bug interacciones">
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Loop Mundo 1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Pre Loop Mundo 1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Recoger objeto.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Tema-mundo-1.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Añadida música y sonido">
+      <change afterPath="$PROJECT_DIR$/Resources/items/Pez_completo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/items/Pez_vacio.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Tema-boss.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Items/ItemPezVida.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/sonidos/Loop Mundo 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/sonidos/Pre Loop Mundo 1.wav" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/sonidos/Recoger objeto.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/sonidos/Recoger objeto.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,7 +64,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/UI",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -74,12 +77,14 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\UI" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\tiles" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\maps" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D" />
@@ -131,7 +136,11 @@
       <workItem from="1684427690673" duration="1827000" />
       <workItem from="1684435116748" duration="15000" />
       <workItem from="1684445073377" duration="1392000" />
-      <workItem from="1684483307285" duration="4188000" />
+      <workItem from="1684483307285" duration="4436000" />
+      <workItem from="1684493573500" duration="184000" />
+      <workItem from="1684504179835" duration="873000" />
+      <workItem from="1684519614473" duration="595000" />
+      <workItem from="1684573001783" duration="10523000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -182,7 +191,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684420227477</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Añadida música y sonido">
+      <created>1684487770040</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1684487770040</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -196,6 +212,7 @@
     <MESSAGE value="Añadida cámara y colisiones" />
     <MESSAGE value="Añadidos objetos y gestor de interacciones" />
     <MESSAGE value="Arreglado bug interacciones" />
-    <option name="LAST_COMMIT_MESSAGE" value="Arreglado bug interacciones" />
+    <MESSAGE value="Añadida música y sonido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadida música y sonido" />
   </component>
 </project>

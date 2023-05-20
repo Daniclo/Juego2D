@@ -10,6 +10,7 @@ public class Item {
     //Esta es la clase padre de la que extienden todos los items del juego.
 
     public BufferedImage sprite; //La textura del objeto
+    public BufferedImage sprite2; //Textura secundaria por si es necesaria para algún objeto
     public String nombre; //Nombre del objeto
     public boolean colision; //Si tiene colisión o no
     public int xMundo, yMundo; //Sus coordenadas

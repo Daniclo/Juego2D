@@ -43,7 +43,6 @@ public class Sonido {
         clip.setLoopPoints(141252,-1); //Se puede ajustar para que quede mejor el loop
         clip.loop(Clip.LOOP_CONTINUOUSLY);
 
-
     }
 
     public void stop(){ //Detiene un sonido que se esté reproduciendo

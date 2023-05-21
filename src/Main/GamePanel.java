@@ -112,6 +112,10 @@ public class GamePanel extends JPanel implements Runnable{
         super.paintComponent(g);
         Graphics2D g2 = (Graphics2D) g;
 
+        //DEBUG
+        long comienzoRender = 0;
+        comienzoRender = System.nanoTime();
+
         tileManager.dibujar(g2); //Dibujar el mapa. Siempre se dibujan los tiles por encima de las entidades y objetos.
 
         //Dibuja todos los items del array de items siempre que no sean nulos.
@@ -127,6 +131,10 @@ public class GamePanel extends JPanel implements Runnable{
 
         ui.dibujar(g2); //Esto tiene que estar encima de lo demás siempre. La interfaz lo último.
 
+        //DEBUG
+        long finRender = System.nanoTime();
+        long tiempoRender = finRender - comienzoRender;
+        System.out.println("Tiempo de renderizado: " + tiempoRender);
 
         g2.dispose();
     }
@@ -157,8 +165,6 @@ public class GamePanel extends JPanel implements Runnable{
 
     public int getFrames(){
 
-        int x = musica.getFrames();
-
-        return x;
+        return musica.getFrames();
     }
 }

@@ -1,6 +1,7 @@
 package Items;
 
 import Main.GamePanel;
+import Main.UtilityTool;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -17,6 +18,7 @@ public class Item {
     public Rectangle areaColision = new Rectangle(0,0,48,48); //El área de colisión de los items ocupa el cuadrado entero (48x48)
     public int areaColisionDefaultX = 0;
     public int areaColisionDefaultY = 0;
+    UtilityTool uTool = new UtilityTool();
 
     public void dibujar(Graphics2D g2, GamePanel gamePanel){
 

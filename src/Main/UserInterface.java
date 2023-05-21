@@ -25,7 +25,7 @@ public class UserInterface {
         arial_40 = new Font("Arial", Font.PLAIN,40);
 
         //Vida del jugador
-        Item pez = new ItemPezVida();
+        Item pez = new ItemPezVida(gamePanel);
         pezCompleto = pez.sprite;
         pezVacio = pez.sprite2;
 
@@ -52,7 +52,7 @@ public class UserInterface {
         //Dibujar vida en blanco
         while (i < gamePanel.jugador.vidaMaxima){ //Este bucle va dibujando la vida, moviendo cada "corazon" a la derecha 16 tiles según la vida máxima del jugador
 
-            g2.drawImage(pezVacio,x,y, gamePanel.tamanyoFinalSprites, gamePanel.tamanyoFinalSprites,null);
+            g2.drawImage(pezVacio,x,y,null);
             i++;
             x += gamePanel.tamanyoFinalSprites;
 
@@ -60,12 +60,11 @@ public class UserInterface {
 
         //Reseteo de los valores al finalizar el bucle
         x = gamePanel.tamanyoFinalSprites/2;
-        y = gamePanel.tamanyoFinalSprites/2;
         i = 0;
 
         //Dibujar vida actual
         while (i < gamePanel.jugador.vida){
-            g2.drawImage(pezCompleto,x,y, gamePanel.tamanyoFinalSprites, gamePanel.tamanyoFinalSprites,null);
+            g2.drawImage(pezCompleto,x,y,null);
             i++;
             x += gamePanel.tamanyoFinalSprites;
         }

@@ -2,6 +2,8 @@ package Main;
 
 import Entidades.Entidad;
 
+import java.awt.*;
+
 public class CheckColisiones {
 
     //Esta clase permite determinar que bloques u objetos son sólidos y cuales no lo son y gestiona las colisiones entre
@@ -95,35 +97,19 @@ public class CheckColisiones {
 
                     case "arriba":
                         e.areaColision.y -= e.speed;
-                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                e.colisionOn = true;
-                            }
-                        }
+                        establecerColision(e, i);
                         break;
                     case "abajo":
                         e.areaColision.y += e.speed;
-                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                e.colisionOn = true;
-                            }
-                        }
+                        establecerColision(e, i);
                         break;
                     case "izquierda":
                         e.areaColision.x -= e.speed;
-                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                e.colisionOn = true;
-                            }
-                        }
+                        establecerColision(e, i);
                         break;
                     case "derecha":
                         e.areaColision.x += e.speed;
-                        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-                            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
-                                e.colisionOn = true;
-                            }
-                        }
+                        establecerColision(e, i);
                         break;
                 }
                 //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
@@ -137,4 +123,16 @@ public class CheckColisiones {
         }
     }
 
+    private void establecerColision(Entidad e, int i) {
+        if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
+            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+                e.colisionOn = true;
+                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed){
+                    gamePanel.items[i].colision = false;
+                    gamePanel.items[i].sprite = gamePanel.items[i].sprite2;
+                    gamePanel.reproducirSonido(2);
+                }
+            }
+        }
+    }
 }

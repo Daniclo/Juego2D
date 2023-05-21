@@ -2,6 +2,8 @@ package Entidades;
 
 import Main.GamePanel;
 import Main.InputsTeclado;
+import Main.UtilityTool;
+
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,6 +21,10 @@ public class Jugador extends Entidad{
     public final int xCamara;
     public final int yCamara;
 
+    //ANIMACIONES RODAR
+
+    BufferedImage rodarAbajo1,rodarAbajo2,rodarAbajo3,rodarArriba1,rodarArriba2,rodarArriba3,rodarIzquierda1,rodarIzquierda2,rodarIzquierda3,rodarDerecha1,rodarDerecha2,rodarDerecha3;
+
     //OBJETOS QUE PUEDE CONSEGUIR EL JUGADOR
     public boolean tienePezGlobo = false;
 
@@ -29,7 +35,7 @@ public class Jugador extends Entidad{
         this.inputs = inputs;
 
         xCamara = gamePanel.anchoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
-        yCamara = gamePanel.altoPantalla/2 - - (gamePanel.tamanyoFinalSprites/2);
+        yCamara = gamePanel.altoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
 
         areaColision = new Rectangle(8,16,32,32); //Estos valores definen el area de colisión del jugador
         //Los valores del área de colisión van a alterar, así que los almacenamos en otras variables para poder acceder de nuevo a ellos
@@ -51,23 +57,46 @@ public class Jugador extends Entidad{
 
     public void getSpritesJugador(){ //Inicializamos los sprites del jugador
 
-        try{
+        //Sprites para andar y correr sin pez globo
+        abajo1 = setUpSprite("andar/PJ_Abajo_1");
+        abajo2 = setUpSprite("andar/PJ_Abajo_2");
+        arriba1 = setUpSprite("andar/PJ_Arriba_1");
+        arriba2 = setUpSprite("andar/PJ_Arriba_2");
+        izquierda1 = setUpSprite("andar/PJ_Izquierda_1");
+        izquierda2 = setUpSprite("andar/PJ_Izquierda_2");
+        derecha1 = setUpSprite("andar/PJ_Derecha_1");
+        derecha2 = setUpSprite("andar/PJ_Derecha_2");
 
-            abajo1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Abajo_1.png")));
-            abajo2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Abajo_2.png")));
-            arriba1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Arriba_1.png")));
-            arriba2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Arriba_2.png")));
-            izquierda1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Izquierda_1.png")));
-            izquierda2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Izquierda_2.png")));
-            derecha1 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Derecha_1.png")));
-            derecha2 = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/PJ_Derecha_2.png")));
-
-        }catch (IOException e){
-            System.out.println(e.getMessage());
-        }
+        //Sprites para rodar una vez tienes el pez globo
+        rodarAbajo1 = setUpSprite("rodar/PJ_rodar_abajo_1");
+        rodarAbajo2 = setUpSprite("rodar/PJ_rodar_abajo_2");
+        rodarAbajo3 = setUpSprite("rodar/PJ_rodar_abajo_3");
+        rodarArriba1 = setUpSprite("rodar/PJ_rodar_arriba_1");
+        rodarArriba2 = setUpSprite("rodar/PJ_rodar_arriba_2");
+        rodarArriba3 = setUpSprite("rodar/PJ_rodar_arriba_3");
+        rodarIzquierda1 = setUpSprite("rodar/PJ_rodar_izquierda_1");
+        rodarIzquierda2 = setUpSprite("rodar/PJ_rodar_izquierda_2");
+        rodarIzquierda3 = setUpSprite("rodar/PJ_rodar_izquierda_3");
+        rodarDerecha1 = setUpSprite("rodar/PJ_rodar_derecha_1");
+        rodarDerecha2 = setUpSprite("rodar/PJ_rodar_derecha_2");
+        rodarDerecha3 = setUpSprite("rodar/PJ_rodar_derecha_3");
     }
 
-    public void interactuar(){
+    public BufferedImage setUpSprite(String ruta){ //Devuelve la imagen escalada por medio del método de uTool.
+
+        UtilityTool uTool = new UtilityTool();
+        BufferedImage imagen = null;
+
+        try {
+
+            imagen = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/"+ruta+".png")));
+            imagen = uTool.escalarImagen(imagen,gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites);
+
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return imagen;
 
     }
 
@@ -87,14 +116,14 @@ public class Jugador extends Entidad{
             if (inputs.rightPressed){ //Apuntar derecha. Comprueba que no hay colisiones antes de avanzar
                 apuntandoA = "derecha";
             }
-            if (inputs.spacePressed){ //Correr más rápido al pulsar espacio
+            if (inputs.spacePressed){ //Correr más rápido al pulsar espacio.
                 speed = 7;
             }else {
                 speed = 4;
             }
 
-            System.out.println("x: " + xMundo);
-            System.out.println("y: " + yMundo);
+            //System.out.println("x: " + xMundo);
+            //System.out.println("y: " + yMundo);
 
             colisionOn = false;
 
@@ -119,10 +148,12 @@ public class Jugador extends Entidad{
             }
 
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
-            if (contadorSprite > 15){ //Este número determina la velocidad a la que cambian los sprites. En este caso cada 15 frames.
+            if (contadorSprite > 12){ //Este número determina la velocidad a la que cambian los sprites.
                 if (spriteActual == 1){
                     spriteActual = 2;
                 }else if (spriteActual == 2){
+                    spriteActual = 3;
+                }else if (spriteActual == 3){
                     spriteActual = 1;
                 }
                 contadorSprite = 0;
@@ -139,40 +170,101 @@ public class Jugador extends Entidad{
 
         BufferedImage image = null;
         switch (apuntandoA) {
-            case "arriba" -> {
-                if (spriteActual == 1) { //Comprueba cual de los 2 sprites tiene que usar ahora y lo asigna en cada actualización para cada dirección
-                    image = arriba1;
-                }
-                if (spriteActual == 2) {
-                    image = arriba2;
+            case "arriba" -> {//Comprueba cual de los 2 sprites tiene que usar ahora y lo asigna en cada actualización para cada dirección.
+                                //Además, si tienes pez globo y estás corriendo cambia los sprites.
+                if (tienePezGlobo && inputs.spacePressed){
+                    if (spriteActual == 1){
+                        image = rodarArriba1;
+                    }
+                    if (spriteActual == 2){
+                        image = rodarArriba2;
+                    }
+                    if (spriteActual == 3){
+                        image = rodarArriba3;
+                    }
+                }else {
+                    if (spriteActual == 1) {
+                        image = arriba1;
+                    }
+                    if (spriteActual == 2) {
+                        image = arriba2;
+                    }
+                    if (spriteActual == 3){
+                        image = arriba1;
+                    }
                 }
             }
             case "abajo" -> {
-                if (spriteActual == 1) {
-                    image = abajo1;
-                }
-                if (spriteActual == 2) {
-                    image = abajo2;
+                if (tienePezGlobo && inputs.spacePressed){
+                    if (spriteActual == 1){
+                        image = rodarAbajo1;
+                    }
+                    if (spriteActual == 2){
+                        image = rodarAbajo2;
+                    }
+                    if (spriteActual == 3){
+                        image = rodarAbajo3;
+                    }
+                }else {
+                    if (spriteActual == 1) {
+                        image = abajo1;
+                    }
+                    if (spriteActual == 2) {
+                        image = abajo2;
+                    }
+                    if (spriteActual == 3){
+                        image = abajo1;
+                    }
                 }
             }
             case "izquierda" -> {
-                if (spriteActual == 1) {
-                    image = izquierda1;
-                }
-                if (spriteActual == 2) {
-                    image = izquierda2;
+                if (tienePezGlobo && inputs.spacePressed){
+                    if (spriteActual == 1){
+                        image = rodarIzquierda1;
+                    }
+                    if (spriteActual == 2){
+                        image = rodarIzquierda2;
+                    }
+                    if (spriteActual == 3){
+                        image = rodarIzquierda3;
+                    }
+                }else {
+                    if (spriteActual == 1) {
+                        image = izquierda1;
+                    }
+                    if (spriteActual == 2) {
+                        image = izquierda2;
+                    }
+                    if (spriteActual == 3){
+                        image = izquierda1;
+                    }
                 }
             }
             case "derecha" -> {
-                if (spriteActual == 1) {
-                    image = derecha1;
-                }
-                if (spriteActual == 2) {
-                    image = derecha2;
+                if (tienePezGlobo && inputs.spacePressed){
+                    if (spriteActual == 1){
+                        image = rodarDerecha1;
+                    }
+                    if (spriteActual == 2){
+                        image = rodarDerecha2;
+                    }
+                    if (spriteActual == 3){
+                        image = rodarDerecha3;
+                    }
+                }else {
+                    if (spriteActual == 1) {
+                        image = derecha1;
+                    }
+                    if (spriteActual == 2) {
+                        image = derecha2;
+                    }
+                    if (spriteActual == 3){
+                        image = derecha1;
+                    }
                 }
             }
         }
-        g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites, null);
+        g2.drawImage(image, xCamara, yCamara, null);
     }
 
 }

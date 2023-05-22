@@ -2,8 +2,6 @@ package Main;
 
 import Entidades.Entidad;
 
-import java.awt.*;
-
 public class CheckColisiones {
 
     //Esta clase permite determinar que bloques u objetos son sólidos y cuales no lo son y gestiona las colisiones entre
@@ -30,48 +28,41 @@ public class CheckColisiones {
 
         int tileNum1, tileNum2;
 
-        switch (e.apuntandoA){
-            case "arriba":
+        switch (e.apuntandoA) {
+            case "arriba" -> {
+                filaSuperior = (bordeSuperiorY - e.speed) / gamePanel.tamanyoFinalSprites; //Estas líneas permiten saber hacia qué tiles se está moviendo el jugador mientras que pulsa
 
-                filaSuperior = (bordeSuperiorY - e.speed)/gamePanel.tamanyoFinalSprites; //Estas líneas permiten saber hacia qué tiles se está moviendo el jugador mientras que pulsa
-                                                                                            //cada botón
+                //cada botón
                 tileNum1 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaSuperior];
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaSuperior];
-
-                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){ //Comprobamos si alguno de los 2 tiles de arriba es sólido
+                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) { //Comprobamos si alguno de los 2 tiles de arriba es sólido
                     e.colisionOn = true;
                 }
-                break;
-            case "abajo":
-
-                filaInferior = (bordeInferiorY + e.speed)/gamePanel.tamanyoFinalSprites;
+            }
+            case "abajo" -> {
+                filaInferior = (bordeInferiorY + e.speed) / gamePanel.tamanyoFinalSprites;
                 tileNum1 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaInferior];
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaInferior];
-
-                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
+                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
                 }
-                break;
-            case "izquierda":
-
-                columnaIzquierda = (bordeIzquierdoX - e.speed)/gamePanel.tamanyoFinalSprites;
+            }
+            case "izquierda" -> {
+                columnaIzquierda = (bordeIzquierdoX - e.speed) / gamePanel.tamanyoFinalSprites;
                 tileNum1 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaInferior];
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaSuperior];
-
-                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
+                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
                 }
-                break;
-            case "derecha":
-
-                columnaDerecha = (bordeDerechoX + e.speed)/gamePanel.tamanyoFinalSprites;
+            }
+            case "derecha" -> {
+                columnaDerecha = (bordeDerechoX + e.speed) / gamePanel.tamanyoFinalSprites;
                 tileNum1 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaInferior];
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaSuperior];
-
-                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision){
+                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
                 }
-                break;
+            }
         }
     }
 
@@ -91,26 +82,24 @@ public class CheckColisiones {
                 gamePanel.items[i].areaColision.x = gamePanel.items[i].xMundo + gamePanel.items[i].areaColision.x;
                 gamePanel.items[i].areaColision.y = gamePanel.items[i].yMundo + gamePanel.items[i].areaColision.y;
 
-                switch (e.apuntandoA){ //Como en los tiles, se comprueba donde estará la entidad cuando se mueva hacia delante.
-                                        //Pero aquí usamos el método intersects() de la clase Rectangle  quecomprueba si hay una intersección
-                                        // con otro rectángulo (en este caso, si ambas áreas de colisión se tocan)
+                switch (e.apuntandoA) {
 
-                    case "arriba":
+                    case "arriba" -> {
                         e.areaColision.y -= e.speed;
                         establecerColision(e, i);
-                        break;
-                    case "abajo":
+                    }
+                    case "abajo" -> {
                         e.areaColision.y += e.speed;
                         establecerColision(e, i);
-                        break;
-                    case "izquierda":
+                    }
+                    case "izquierda" -> {
                         e.areaColision.x -= e.speed;
                         establecerColision(e, i);
-                        break;
-                    case "derecha":
+                    }
+                    case "derecha" -> {
                         e.areaColision.x += e.speed;
                         establecerColision(e, i);
-                        break;
+                    }
                 }
                 //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
                 //la comprobación, no deben cambiar realmente)
@@ -124,15 +113,21 @@ public class CheckColisiones {
     }
 
     private void establecerColision(Entidad e, int i) {
+
+        //Como en los tiles, se comprueba donde estará la entidad cuando se mueva hacia delante.
+        //Pero aquí usamos el método intersects() de la clase Rectangle  quecomprueba si hay una intersección
+        // con otro rectángulo (en este caso, si ambas áreas de colisión se tocan)
+
         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
-            if (gamePanel.items[i].colision){ //Se comprueba si el objeto debe impedir el paso
+            if (gamePanel.items[i].colision){
                 e.colisionOn = true;
-                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed){
+                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed){ //Si el objeto es una roca, comprueba si debe romperlo
                     gamePanel.items[i].colision = false;
                     gamePanel.items[i].sprite = gamePanel.items[i].sprite2;
                     gamePanel.reproducirSonido(2);
                 }
             }
         }
+
     }
 }

@@ -84,11 +84,12 @@ public class CheckInteraccion {
     public void obtenerObjetos(String nombre, Jugador e){ //Este método comprueba con qué item has interactuado y resuelve
                                                         //lo que tenga que acontecer según el item
 
-        gamePanel.reproducirSonido(1);
+
 
         if (nombre.equals("Pez Globo")){
             e.tienePezGlobo = true;
             gamePanel.items[0] = null;
+            gamePanel.reproducirSonido(1);
         }
     }
 }

@@ -24,6 +24,18 @@ public class AssetSetter {
         gamePanel.items[1].xMundo = 900;
         gamePanel.items[1].yMundo = 200;
 
+        gamePanel.items[2] = new Roca(gamePanel);
+        gamePanel.items[2].xMundo = 948;
+        gamePanel.items[2].yMundo = 200;
+
+        gamePanel.items[3] = new Roca(gamePanel);
+        gamePanel.items[3].xMundo = 900;
+        gamePanel.items[3].yMundo = 300;
+
+        gamePanel.items[4] = new Roca(gamePanel);
+        gamePanel.items[4].xMundo = 948;
+        gamePanel.items[4].yMundo = 300;
+
     }
 
 }

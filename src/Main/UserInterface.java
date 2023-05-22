@@ -17,7 +17,7 @@ public class UserInterface {
     //No hay que hacer una nueva instancia de fuente en el método dibujar porque no queremos que se hagan 60 intancias
     //de font por segundo.
     Font arial_40;
-    private Graphics2D g2;
+    Graphics2D g2;
 
     public UserInterface(GamePanel gamePanel){
 
@@ -36,10 +36,39 @@ public class UserInterface {
 
         this.g2 = g2;
 
-        //AQUÍ IRAN LOS GAME STATES
+        g2.setFont(arial_40);
+        g2.setColor(Color.white);
 
+        //DEBUG
+        System.out.println(gamePanel.gameState);
 
-        dibujarVida();
+        if (gamePanel.gameState == gamePanel.playState){
+            //Play State
+        }
+        if (gamePanel.gameState == gamePanel.pauseState){
+            dibujarMenuPausa();
+            System.out.println("Pausa");
+        }
+
+        dibujarVida(); //Vida del jugador sobre la pantalla.
+
+    }
+
+    public void dibujarMenuPausa() {
+
+        String textoPausa = "PAUSA";
+        int x ;
+        x = getXparaTextoCentrado(textoPausa);
+        int y = gamePanel.altoPantalla/2;
+
+        g2.drawString(textoPausa,x,y);
+
+    }
+
+    public int getXparaTextoCentrado(String texto){ //Realiza el cálculo para sacar la x para mostrar texto centrado en pantalla según la longitud del texto
+
+        int longitud = (int) g2.getFontMetrics().getStringBounds(texto,g2).getWidth();
+        return gamePanel.anchoPantalla/2 - longitud/2;
 
     }
 

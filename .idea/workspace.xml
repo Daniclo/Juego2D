@@ -4,51 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Display de la vida del jugador">
-      <change afterPath="$PROJECT_DIR$/Resources/items/Roca.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/items/RocaDestruida.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_abajo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_abajo_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_abajo_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_arriba_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_arriba_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_arriba_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_derecha_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_derecha_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_derecha_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_izquierda_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_izquierda_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/jugador/rodar/PJ_rodar_izquierda_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/Romper-roca.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Items/Roca.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Main/UtilityTool.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="La foca puede rodar">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Abajo_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Abajo_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Abajo_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Arriba_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Arriba_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Arriba_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Derecha_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Derecha_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Derecha_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_1.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Izquierda_1.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/jugador/PJ_Izquierda_2.png" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/jugador/andar/PJ_Izquierda_2.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/maps/Mapa1.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_arena.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_arena.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_hierba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_destruida_tierra.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_hierba.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/tiles/Tile_roca_tierra.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/ItemPezVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/ItemPezVida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/sonidos/Tema-boss.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/sonidos/Tema-boss.wav" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,24 +53,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
@@ -116,10 +80,10 @@
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\rodar" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\andar" />
-      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\maps" />
     </key>
   </component>
@@ -179,7 +143,9 @@
       <workItem from="1684669828298" duration="595000" />
       <workItem from="1684682990833" duration="1392000" />
       <workItem from="1684687280822" duration="594000" />
-      <workItem from="1684698731893" duration="9708000" />
+      <workItem from="1684698731893" duration="9841000" />
+      <workItem from="1684709835107" duration="100000" />
+      <workItem from="1684744985402" duration="4206000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -244,7 +210,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684589314139</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="La foca puede rodar">
+      <created>1684709722604</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1684709722604</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -260,6 +233,7 @@
     <MESSAGE value="Arreglado bug interacciones" />
     <MESSAGE value="Añadida música y sonido" />
     <MESSAGE value="Display de la vida del jugador" />
-    <option name="LAST_COMMIT_MESSAGE" value="Display de la vida del jugador" />
+    <MESSAGE value="La foca puede rodar" />
+    <option name="LAST_COMMIT_MESSAGE" value="La foca puede rodar" />
   </component>
 </project>

@@ -8,6 +8,11 @@ public class InputsTeclado implements KeyListener {
     //Esta clase InputsTeclado nos va a permitir interpretar los controles del juego.
     //Los métodos de la interfaz KeyListener permiten recibir inputs de teclado y reaccionar a ellos.
 
+    GamePanel gamePanel;
+    public InputsTeclado(GamePanel gamePanel){
+        this.gamePanel = gamePanel;
+    }
+
     //Estos valores booleanos indican cuando una tecla está siendo pulsada o no. Usaremos los métodos para
     //actualizarlos al pulsar y soltar las  teclas.
     public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressed;
@@ -21,6 +26,7 @@ public class InputsTeclado implements KeyListener {
     public void keyPressed(KeyEvent e) {
         int code = e.getKeyCode(); //asigna el valor int asociado a la tecla que ha sido presionada.
                                     //Esto nos va a servir para detectar qué tecla se pulsa.
+
         if (code == KeyEvent.VK_W){
             upPressed = true;
         }
@@ -38,6 +44,14 @@ public class InputsTeclado implements KeyListener {
         }
         if (code == KeyEvent.VK_E){
             ePressed = true;
+        }
+        if (code == KeyEvent.VK_ENTER){ //Al pulsar Q, alternamos entre el modo jugar y el modo pausa.
+            if (gamePanel.gameState == gamePanel.playState){
+                gamePanel.gameState = gamePanel.pauseState;
+            }
+            else if (gamePanel.gameState == gamePanel.pauseState){ //Esto tiene que ser con else if, con solo if no funciona por algun motivo
+                gamePanel.gameState = gamePanel.playState;
+            }
         }
     }
 

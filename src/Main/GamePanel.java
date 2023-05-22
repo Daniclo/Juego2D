@@ -31,19 +31,24 @@ public class GamePanel extends JPanel implements Runnable{
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
 
     //Clases que gestionan el sistema de juego
-    InputsTeclado inputs = new InputsTeclado();
+    InputsTeclado inputs = new InputsTeclado(this);
     Thread gameThread;
     Sonido musica = new Sonido();
     Sonido efectos = new Sonido();
     TileManager tileManager = new TileManager(this);
     public CheckColisiones checkColisiones = new CheckColisiones(this);
-    AssetSetter assetSetter = new AssetSetter(this); //Instanciamos un manejador de objetos
+    AssetSetter assetSetter = new AssetSetter(this);
     public UserInterface ui = new UserInterface(this);
     public CheckInteraccion checkInteraccion = new CheckInteraccion(this);
 
     //Clases que gestionan las entidades e items
     public Jugador jugador = new Jugador(this,inputs);
     public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
+
+    //Game state
+    public int gameState;
+    public final int playState = 1;
+    public final int pauseState = 2;
 
 
     //Constructor de ventanas de juego
@@ -59,6 +64,8 @@ public class GamePanel extends JPanel implements Runnable{
 
         assetSetter.setItems();
         reproducirMusica(0);
+        gameState = playState;
+
     }
 
     public void iniciarRelojDeJuego(){ //Al llamar a este método comienza un loop que ejecuta el método run
@@ -103,7 +110,13 @@ public class GamePanel extends JPanel implements Runnable{
     public void actualizar(){ //En este método vamos a registrar los datos de movimiento de los sprites por la pantalla
                                 //para enviarlos al método paintComponent y que los actualice.
 
-        jugador.actualizar(); //Obtener datos del jugador
+        if (gameState == playState){ //Solo se actualizan datos si el juego no está pausado.
+            jugador.actualizar(); //Obtener datos del jugador
+        }
+        if (gameState == pauseState){
+
+        }
+
 
     }
     public void paintComponent(Graphics g){
@@ -129,12 +142,12 @@ public class GamePanel extends JPanel implements Runnable{
 
 
 
-        ui.dibujar(g2); //Esto tiene que estar encima de lo demás siempre. La interfaz lo último.
+        ui.dibujar(g2); //Esto tiene que estar debajo de lo demás siempre. La interfaz lo último.
 
         //DEBUG
         long finRender = System.nanoTime();
         long tiempoRender = finRender - comienzoRender;
-        System.out.println("Tiempo de renderizado: " + tiempoRender);
+        //System.out.println("Tiempo de renderizado: " + tiempoRender);
 
         g2.dispose();
     }

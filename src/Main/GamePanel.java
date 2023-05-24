@@ -1,6 +1,8 @@
 package Main;
 
+import Entidades.Entidad;
 import Entidades.Jugador;
+import Entidades.NPC_Patrisio;
 import Items.Item;
 import Tiles.TileManager;
 import javax.swing.*;
@@ -21,8 +23,8 @@ public class GamePanel extends JPanel implements Runnable{
     public final int numMaxFilas = 12;
 
     //Multiplicando estas filas y columnas por el tamaño de un tile obtenemos el largo y ancho.
-    public final int anchoPantalla = tamanyoFinalSprites *numMaxColumnas;
-    public final int altoPantalla = tamanyoFinalSprites *numMaxFilas;
+    public final int anchoPantalla = tamanyoFinalSprites * numMaxColumnas;
+    public final int altoPantalla = tamanyoFinalSprites * numMaxFilas;
 
     //Ajustes de los mapas:
     public final int maxMundoColumna = 32;
@@ -44,12 +46,15 @@ public class GamePanel extends JPanel implements Runnable{
     //Clases que gestionan las entidades e items
     public Jugador jugador = new Jugador(this,inputs);
     public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
+    public Entidad[] entidades = new Entidad[10]; //Indica el número de entidades que pueden haber a la vez en el mapa. Igual que los objetos.
 
     //Game state
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
 
+    //Trackear que canción está sonando
+    int sonandoAhora;
 
     //Constructor de ventanas de juego
     public GamePanel(){
@@ -63,7 +68,8 @@ public class GamePanel extends JPanel implements Runnable{
     public void setUpGame(){ //Este método sirve para colocar en el juego ciertos elementos
 
         assetSetter.setItems();
-        reproducirMusica(0);
+        assetSetter.setNPC();
+        sonandoAhora = reproducirMusica(0);
         gameState = playState;
 
     }
@@ -111,10 +117,26 @@ public class GamePanel extends JPanel implements Runnable{
                                 //para enviarlos al método paintComponent y que los actualice.
 
         if (gameState == playState){ //Solo se actualizan datos si el juego no está pausado.
+
+            //Jugador
             jugador.actualizar(); //Obtener datos del jugador
+            //NPCs
+            for (int i = 0; i<entidades.length;i++){
+                if (entidades[i] != null){
+                    entidades[i].actualizar();
+                }
+            }
+
+            //Por algún motivo, la música se reproduce siempre desde el punto de inicio y no donde se detuvo.
+            //if (!musica.clip.isActive()){
+            //    reproducirMusica(sonandoAhora);
+            //}
         }
         if (gameState == pauseState){
 
+
+
+            //detenerMusica();
         }
 
 
@@ -140,7 +162,12 @@ public class GamePanel extends JPanel implements Runnable{
 
         jugador.dibujar(g2); //Dibujar al jugador.
 
-
+        //NPCs
+        for (int i=0;i<entidades.length;i++){
+            if (entidades[i] != null){
+                entidades[i].dibujar(g2);
+            }
+        }
 
         ui.dibujar(g2); //Esto tiene que estar debajo de lo demás siempre. La interfaz lo último.
 
@@ -154,13 +181,15 @@ public class GamePanel extends JPanel implements Runnable{
 
 
     //Métodos para reproducir sonidos (de la clase Sonido)
-    public void reproducirMusica(int i){
+    public int reproducirMusica(int i){
 
         musica.setFile(i);
         musica.play();
         if (i == 0){
             musica.loopMundo1();
         }
+
+        return i;
     }
 
     public void detenerMusica(){

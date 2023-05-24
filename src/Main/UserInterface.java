@@ -40,14 +40,13 @@ public class UserInterface {
         g2.setColor(Color.white);
 
         //DEBUG
-        System.out.println(gamePanel.gameState);
+        //System.out.println(gamePanel.gameState);
 
         if (gamePanel.gameState == gamePanel.playState){
             //Play State
         }
         if (gamePanel.gameState == gamePanel.pauseState){
             dibujarMenuPausa();
-            System.out.println("Pausa");
         }
 
         dibujarVida(); //Vida del jugador sobre la pantalla.

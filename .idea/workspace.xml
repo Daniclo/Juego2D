@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="La foca puede rodar">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Añadido botón de pausa">
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_abajo_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_abajo_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_arriba_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_arriba_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_derecha_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_derecha_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_izquierda_1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/npc/Pinguino_izquierda_2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/sonidos/Tema-boss.wav" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/sonidos/Tema-boss.wav" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -80,11 +89,11 @@
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\npc" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\rodar" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\andar" />
-      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\maps" />
     </key>
   </component>
   <component name="RunManager">
@@ -145,7 +154,20 @@
       <workItem from="1684687280822" duration="594000" />
       <workItem from="1684698731893" duration="9841000" />
       <workItem from="1684709835107" duration="100000" />
-      <workItem from="1684744985402" duration="4206000" />
+      <workItem from="1684744985402" duration="4851000" />
+      <workItem from="1684753286038" duration="623000" />
+      <workItem from="1684761510042" duration="107000" />
+      <workItem from="1684761639186" duration="121000" />
+      <workItem from="1684780118819" duration="35000" />
+      <workItem from="1684784926580" duration="1312000" />
+      <workItem from="1684790395758" duration="74000" />
+      <workItem from="1684791864920" duration="850000" />
+      <workItem from="1684834506500" duration="4393000" />
+      <workItem from="1684856870913" duration="925000" />
+      <workItem from="1684862500507" duration="594000" />
+      <workItem from="1684872797044" duration="1968000" />
+      <workItem from="1684917541781" duration="3693000" />
+      <workItem from="1684935013536" duration="5214000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -217,7 +239,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684709722604</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Añadido botón de pausa">
+      <created>1684750018098</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1684750018098</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +263,7 @@
     <MESSAGE value="Añadida música y sonido" />
     <MESSAGE value="Display de la vida del jugador" />
     <MESSAGE value="La foca puede rodar" />
-    <option name="LAST_COMMIT_MESSAGE" value="La foca puede rodar" />
+    <MESSAGE value="Añadido botón de pausa" />
+    <option name="LAST_COMMIT_MESSAGE" value="Añadido botón de pausa" />
   </component>
 </project>

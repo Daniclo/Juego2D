@@ -2,20 +2,14 @@ package Entidades;
 
 import Main.GamePanel;
 import Main.InputsTeclado;
-import Main.UtilityTool;
-
-import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.IOException;
-import java.util.Objects;
 
 public class Jugador extends Entidad{
 
     //Esta clase controla lo relacionado con el personaje protagonista del juego, manejado por el jugador, y sus
     //interacciones con el resto del juego.
 
-    GamePanel gamePanel;
     public InputsTeclado inputs;
 
     public final int xCamara;
@@ -31,7 +25,7 @@ public class Jugador extends Entidad{
     public Jugador(GamePanel gamePanel, InputsTeclado inputs){ //Instanciamos los inputs y el panel de juego para poder
                                                                 //utilizarlos en esta clase
 
-        this.gamePanel = gamePanel;
+        super(gamePanel); //Constructor de entidad
         this.inputs = inputs;
 
         xCamara = gamePanel.anchoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
@@ -58,48 +52,31 @@ public class Jugador extends Entidad{
     public void getSpritesJugador(){ //Inicializamos los sprites del jugador
 
         //Sprites para andar y correr sin pez globo
-        abajo1 = setUpSprite("andar/PJ_Abajo_1");
-        abajo2 = setUpSprite("andar/PJ_Abajo_2");
-        arriba1 = setUpSprite("andar/PJ_Arriba_1");
-        arriba2 = setUpSprite("andar/PJ_Arriba_2");
-        izquierda1 = setUpSprite("andar/PJ_Izquierda_1");
-        izquierda2 = setUpSprite("andar/PJ_Izquierda_2");
-        derecha1 = setUpSprite("andar/PJ_Derecha_1");
-        derecha2 = setUpSprite("andar/PJ_Derecha_2");
+        abajo1 = setUpSprite("/jugador/andar/PJ_Abajo_1");
+        abajo2 = setUpSprite("/jugador/andar/PJ_Abajo_2");
+        arriba1 = setUpSprite("/jugador/andar/PJ_Arriba_1");
+        arriba2 = setUpSprite("/jugador/andar/PJ_Arriba_2");
+        izquierda1 = setUpSprite("/jugador/andar/PJ_Izquierda_1");
+        izquierda2 = setUpSprite("/jugador/andar/PJ_Izquierda_2");
+        derecha1 = setUpSprite("/jugador/andar/PJ_Derecha_1");
+        derecha2 = setUpSprite("/jugador/andar/PJ_Derecha_2");
 
         //Sprites para rodar una vez tienes el pez globo
-        rodarAbajo1 = setUpSprite("rodar/PJ_rodar_abajo_1");
-        rodarAbajo2 = setUpSprite("rodar/PJ_rodar_abajo_2");
-        rodarAbajo3 = setUpSprite("rodar/PJ_rodar_abajo_3");
-        rodarArriba1 = setUpSprite("rodar/PJ_rodar_arriba_1");
-        rodarArriba2 = setUpSprite("rodar/PJ_rodar_arriba_2");
-        rodarArriba3 = setUpSprite("rodar/PJ_rodar_arriba_3");
-        rodarIzquierda1 = setUpSprite("rodar/PJ_rodar_izquierda_1");
-        rodarIzquierda2 = setUpSprite("rodar/PJ_rodar_izquierda_2");
-        rodarIzquierda3 = setUpSprite("rodar/PJ_rodar_izquierda_3");
-        rodarDerecha1 = setUpSprite("rodar/PJ_rodar_derecha_1");
-        rodarDerecha2 = setUpSprite("rodar/PJ_rodar_derecha_2");
-        rodarDerecha3 = setUpSprite("rodar/PJ_rodar_derecha_3");
+        rodarAbajo1 = setUpSprite("/jugador/rodar/PJ_rodar_abajo_1");
+        rodarAbajo2 = setUpSprite("/jugador/rodar/PJ_rodar_abajo_2");
+        rodarAbajo3 = setUpSprite("/jugador/rodar/PJ_rodar_abajo_3");
+        rodarArriba1 = setUpSprite("/jugador/rodar/PJ_rodar_arriba_1");
+        rodarArriba2 = setUpSprite("/jugador/rodar/PJ_rodar_arriba_2");
+        rodarArriba3 = setUpSprite("/jugador/rodar/PJ_rodar_arriba_3");
+        rodarIzquierda1 = setUpSprite("/jugador/rodar/PJ_rodar_izquierda_1");
+        rodarIzquierda2 = setUpSprite("/jugador/rodar/PJ_rodar_izquierda_2");
+        rodarIzquierda3 = setUpSprite("/jugador/rodar/PJ_rodar_izquierda_3");
+        rodarDerecha1 = setUpSprite("/jugador/rodar/PJ_rodar_derecha_1");
+        rodarDerecha2 = setUpSprite("/jugador/rodar/PJ_rodar_derecha_2");
+        rodarDerecha3 = setUpSprite("/jugador/rodar/PJ_rodar_derecha_3");
     }
 
-    public BufferedImage setUpSprite(String ruta){ //Devuelve la imagen escalada por medio del método de uTool.
-
-        UtilityTool uTool = new UtilityTool();
-        BufferedImage imagen = null;
-
-        try {
-
-            imagen = ImageIO.read(Objects.requireNonNull(getClass().getResourceAsStream("/jugador/"+ruta+".png")));
-            imagen = uTool.escalarImagen(imagen,gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites);
-
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-
-        return imagen;
-
-    }
-
+    @Override
     public void actualizar(){
         if (inputs.upPressed || inputs.downPressed || inputs.rightPressed || inputs.leftPressed){ //Este if hace que las animaciones de movimiento no se activen mientras
                                                                                                     //el personaje está quieto.
@@ -132,6 +109,9 @@ public class Jugador extends Entidad{
             //Le pasamos esta entidad al check de colisiones de objetos.
             gamePanel.checkColisiones.checkItem(this);
 
+            //Comprobamos colisiones con otras entidades
+            gamePanel.checkColisiones.checkEntitdad(this, gamePanel.entidades);
+
             if (!colisionOn){ //Solo habilitamos que se mueva el jugador mientras que el valor de colisión sea falso
                 if (inputs.upPressed){
                     yMundo -= speed;
@@ -147,6 +127,9 @@ public class Jugador extends Entidad{
                 }
             }
 
+            if (!tienePezGlobo){ //Este if cicla las animaciones más rápido cuando no tienes el pez globo. Es para arreglar un bug
+                contadorSprite++;
+            }
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
             if (contadorSprite > 12){ //Este número determina la velocidad a la que cambian los sprites.
                 if (spriteActual == 1){
@@ -161,9 +144,10 @@ public class Jugador extends Entidad{
         }
 
         if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
-            //con el que interactuar
+                                 //con el que interactuar
 
             gamePanel.checkInteraccion.checkItem(this);
+            gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
         }
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización

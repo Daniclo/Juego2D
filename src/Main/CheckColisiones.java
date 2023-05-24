@@ -30,12 +30,13 @@ public class CheckColisiones {
 
         switch (e.apuntandoA) {
             case "arriba" -> {
-                filaSuperior = (bordeSuperiorY - e.speed) / gamePanel.tamanyoFinalSprites; //Estas líneas permiten saber hacia qué tiles se está moviendo el jugador mientras que pulsa
+                //Estas líneas permiten saber hacia qué tiles se está moviendo el jugador mientras que pulsa cada botón
+                filaSuperior = (bordeSuperiorY - e.speed) / gamePanel.tamanyoFinalSprites;
 
-                //cada botón
                 tileNum1 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaSuperior];
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaSuperior];
-                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) { //Comprobamos si alguno de los 2 tiles de arriba es sólido
+                //Comprobamos si alguno de los 2 tiles de arriba es sólido
+                if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
                 }
             }
@@ -86,19 +87,19 @@ public class CheckColisiones {
 
                     case "arriba" -> {
                         e.areaColision.y -= e.speed;
-                        establecerColision(e, i);
+                        establecerColisionItem(e, i);
                     }
                     case "abajo" -> {
                         e.areaColision.y += e.speed;
-                        establecerColision(e, i);
+                        establecerColisionItem(e, i);
                     }
                     case "izquierda" -> {
                         e.areaColision.x -= e.speed;
-                        establecerColision(e, i);
+                        establecerColisionItem(e, i);
                     }
                     case "derecha" -> {
                         e.areaColision.x += e.speed;
-                        establecerColision(e, i);
+                        establecerColisionItem(e, i);
                     }
                 }
                 //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
@@ -112,7 +113,63 @@ public class CheckColisiones {
         }
     }
 
-    private void establecerColision(Entidad e, int i) {
+    //Colisión con NPC o enemigo
+    public void checkEntitdad(Entidad e, Entidad[] target){
+
+        for (int i = 0; i<target.length; i++) {
+
+            if (target[i] != null) { //Si la entidad objetivo existe
+
+                //Conseguimos el área de colisión de la entidad que colisiona
+                e.areaColision.x = e.xMundo + e.areaColision.x;
+                e.areaColision.y = e.yMundo + e.areaColision.y;
+
+                //Conseguimos el área de colisión de la entidad colisionada (target)
+                target[i].areaColision.x = target[i].xMundo + target[i].areaColision.x;
+                target[i].areaColision.y = target[i].yMundo + target[i].areaColision.y;
+
+                switch (e.apuntandoA) {
+                    //Establecemos la colisión correspondiente dependiendo de la dirección
+                    case "arriba" -> {
+                        e.areaColision.y -= e.speed;
+                        establecerColisionEntidad(e,i,target);
+                    }
+                    case "abajo" -> {
+                        e.areaColision.y += e.speed;
+                        establecerColisionEntidad(e,i,target);
+                    }
+                    case "izquierda" -> {
+                        e.areaColision.x -= e.speed;
+                        establecerColisionEntidad(e,i,target);
+                    }
+                    case "derecha" -> {
+                        e.areaColision.x += e.speed;
+                        establecerColisionEntidad(e,i,target);
+                    }
+                }
+                //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
+                //la comprobación, no deben cambiar realmente)
+                e.areaColision.x = e.areaColisionDefaultX;
+                e.areaColision.y = e.areaColisionDefaultY;
+                target[i].areaColision.x = target[i].areaColisionDefaultX;
+                target[i].areaColision.y = target[i].areaColisionDefaultY;
+
+            }
+
+        }
+
+    }
+
+    private void establecerColisionEntidad(Entidad e, int i, Entidad[] target){
+
+        //Se comprueba si se tocan las áreas de colisión con el método intersects una vez se mueva la entidad.
+        if (e.areaColision.intersects(target[i].areaColision)){
+            e.colisionOn = true;
+            target[i].colisionOn = true;
+        }
+    }
+
+    private void establecerColisionItem(Entidad e, int i) {
 
         //Como en los tiles, se comprueba donde estará la entidad cuando se mueva hacia delante.
         //Pero aquí usamos el método intersects() de la clase Rectangle  quecomprueba si hay una intersección
@@ -128,6 +185,5 @@ public class CheckColisiones {
                 }
             }
         }
-
     }
 }

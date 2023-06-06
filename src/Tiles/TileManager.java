@@ -65,6 +65,7 @@ public class TileManager {
         try {
 
             InputStream is = getClass().getResourceAsStream(mapa); //Lee el archivo del mapa para interpretarlo
+            assert is != null;
             BufferedReader br = new BufferedReader(new InputStreamReader(is));
 
             int columnas = 0;

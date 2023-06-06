@@ -2,7 +2,6 @@ package Main;
 
 import Entidades.Entidad;
 import Entidades.Jugador;
-import Entidades.NPC_Patrisio;
 import Items.Item;
 import Tiles.TileManager;
 import javax.swing.*;
@@ -28,7 +27,7 @@ public class GamePanel extends JPanel implements Runnable{
 
     //Ajustes de los mapas:
     public final int maxMundoColumna = 32;
-    public final int maxMundoFila = 36;
+    public final int maxMundoFila = 18;
 
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
 
@@ -52,6 +51,10 @@ public class GamePanel extends JPanel implements Runnable{
     public int gameState;
     public final int playState = 1;
     public final int pauseState = 2;
+    public final int dialogueState = 3;
+
+    //Activamos esto con una tecla para ver las hitboxes
+    public boolean toogleHitboxes = false;
 
     //Trackear que canción está sonando
     int sonandoAhora;
@@ -89,6 +92,7 @@ public class GamePanel extends JPanel implements Runnable{
             //1. Actualizar la información del juego
             actualizar();
 
+            //DEBUG
             //Con estas 2 líneas, se puede ver los frames de la canción (para fijar los loops)
             //int x = getFrames();
             //System.out.println(x);
@@ -105,8 +109,6 @@ public class GamePanel extends JPanel implements Runnable{
                 }
 
                 Thread.sleep((long) esperaEscritura); //Bloquea todas las acciones del loop hasta que acabe el tiempo de espera para la siguiente escritura
-
-                siguienteEscritura += intervaloEscritura; //El siguiente tiempo de escritura será en otros 1/60 segundos
 
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
@@ -137,6 +139,11 @@ public class GamePanel extends JPanel implements Runnable{
 
 
             //detenerMusica();
+        }
+        if (gameState == dialogueState){
+
+            ui.dibujarVentanaDialogo();
+
         }
 
 

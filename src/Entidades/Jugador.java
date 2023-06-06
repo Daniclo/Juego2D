@@ -41,8 +41,8 @@ public class Jugador extends Entidad{
     }
 
     public void valoresPorDefecto(){ //Definimos una serie de atributos iniciales para el jugador
-        xMundo = 744;
-        yMundo = 909;
+        xMundo = 150;
+        yMundo = 150;
         speed = 4;
         apuntandoA = "abajo";
         vidaMaxima = 5;
@@ -99,6 +99,7 @@ public class Jugador extends Entidad{
                 speed = 4;
             }
 
+            //DEBUG
             //System.out.println("x: " + xMundo);
             //System.out.println("y: " + yMundo);
 
@@ -143,11 +144,17 @@ public class Jugador extends Entidad{
             }
         }
 
-        if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
+        if (inputs.ePressedPlay){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
                                  //con el que interactuar
 
             gamePanel.checkInteraccion.checkItem(this);
-            gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
+            int i = gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
+            if (i != 999){
+                gamePanel.entidades[i].hablar();
+            }
+        }
+        if (inputs.ePressedDialogue){
+
         }
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización
@@ -249,6 +256,12 @@ public class Jugador extends Entidad{
             }
         }
         g2.drawImage(image, xCamara, yCamara, null);
+        //DEBUG
+        if (gamePanel.toogleHitboxes){
+            g2.setColor(Color.red);
+            g2.drawRect(xCamara+8,yCamara+16,32,32);
+        }
+
     }
 
 }

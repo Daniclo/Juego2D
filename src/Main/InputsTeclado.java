@@ -15,7 +15,7 @@ public class InputsTeclado implements KeyListener {
 
     //Estos valores booleanos indican cuando una tecla está siendo pulsada o no. Usaremos los métodos para
     //actualizarlos al pulsar y soltar las  teclas.
-    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressedPlay, ePressedDialogue;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -27,25 +27,44 @@ public class InputsTeclado implements KeyListener {
         int code = e.getKeyCode(); //asigna el valor int asociado a la tecla que ha sido presionada.
                                     //Esto nos va a servir para detectar qué tecla se pulsa.
 
-        if (code == KeyEvent.VK_W){
-            upPressed = true;
+
+        //PLAYSTATE
+        if (gamePanel.gameState == gamePanel.playState){
+            if (code == KeyEvent.VK_W){
+                upPressed = true;
+            }
+            if (code == KeyEvent.VK_A){
+                leftPressed = true;
+            }
+            if (code == KeyEvent.VK_S){
+                downPressed = true;
+            }
+            if (code == KeyEvent.VK_D){
+                rightPressed = true;
+            }
+            if (code == KeyEvent.VK_SPACE){
+                spacePressed = true;
+            }
+            if (code == KeyEvent.VK_E){
+                ePressedPlay = true;
+            }
+            if (code == KeyEvent.VK_Q){
+                if (gamePanel.toogleHitboxes){
+                    gamePanel.toogleHitboxes = false;
+                }else {
+                    gamePanel.toogleHitboxes = true;
+                }
+            }
         }
-        if (code == KeyEvent.VK_A){
-            leftPressed = true;
+
+        //DIALOGUESTATE
+        if (gamePanel.gameState == gamePanel.dialogueState){
+            if (code == KeyEvent.VK_E){
+
+            }
         }
-        if (code == KeyEvent.VK_S){
-            downPressed = true;
-        }
-        if (code == KeyEvent.VK_D){
-            rightPressed = true;
-        }
-        if (code == KeyEvent.VK_SPACE){
-            spacePressed = true;
-        }
-        if (code == KeyEvent.VK_E){
-            ePressed = true;
-        }
-        if (code == KeyEvent.VK_ENTER){ //Al pulsar Q, alternamos entre el modo jugar y el modo pausa.
+
+        if (code == KeyEvent.VK_ENTER){ //Al pulsar ENTER, alternamos entre el modo jugar y el modo pausa.
             if (gamePanel.gameState == gamePanel.playState){
                 gamePanel.gameState = gamePanel.pauseState;
             }
@@ -53,6 +72,7 @@ public class InputsTeclado implements KeyListener {
                 gamePanel.gameState = gamePanel.playState;
             }
         }
+
     }
 
     @Override
@@ -76,7 +96,8 @@ public class InputsTeclado implements KeyListener {
             spacePressed = false;
         }
         if (code == KeyEvent.VK_E){
-            ePressed = false;
+            ePressedPlay = false;
+            ePressedDialogue = false;
         }
     }
 }

@@ -35,7 +35,11 @@ public class Item {
                 yMundo - (gamePanel.tamanyoFinalSprites*2)< gamePanel.jugador.yMundo + gamePanel.jugador.yCamara){
 
             g2.drawImage(sprite,xCamara,yCamara,gamePanel.tamanyoFinalSprites,gamePanel.tamanyoFinalSprites,null);
-
+            //DEBUG
+            if (gamePanel.toogleHitboxes){
+                g2.setColor(Color.red);
+                g2.drawRect(xCamara,yCamara,48,48);
+            }
         }
     }
 }

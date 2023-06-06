@@ -42,8 +42,8 @@ public class AssetSetter {
     public void setNPC(){
 
         gamePanel.entidades[0] = new NPC_Patrisio(gamePanel);
-        gamePanel.entidades[0].xMundo = 694;
-        gamePanel.entidades[0].yMundo = 200;
+        gamePanel.entidades[0].xMundo = 551;
+        gamePanel.entidades[0].yMundo = 184;
 
     }
 

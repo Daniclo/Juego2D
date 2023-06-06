@@ -29,6 +29,10 @@ public class CheckInteraccion {
                 gamePanel.items[i].areaColision.x = gamePanel.items[i].xMundo + gamePanel.items[i].areaColision.x;
                 gamePanel.items[i].areaColision.y = gamePanel.items[i].yMundo + gamePanel.items[i].areaColision.y;
 
+                //DEBUG
+                //System.out.println(e.areaColision.x + " " + e.areaColision.y);
+                //System.out.println(gamePanel.items[i].areaColision.x + " " + gamePanel.items[i].areaColision.y);
+
                 switch (e.apuntandoA) { //Igual que en las colisiones, se comprueba si está el jugador pegado al objeto.
 
                     case "arriba" -> {
@@ -82,11 +86,12 @@ public class CheckInteraccion {
         }
     }
 
-    public void checkNPC(Jugador e, Entidad[] target) {
+    public int checkNPC(Jugador e, Entidad[] target) {
 
-        for (int i=0;i< target.length;i++){
+        int entidad = 999;
+        for (int i = 0; i < target.length; i++) {
 
-            if (target[i] != null){
+            if (target[i] != null) {
 
                 //Conseguimos el área de colisión del jugador
                 e.areaColision.x = e.xMundo + e.areaColision.x;
@@ -95,34 +100,50 @@ public class CheckInteraccion {
                 //Conseguimos el área de colisión de la entidad objetivo
                 target[i].areaColision.x = target[i].xMundo + target[i].areaColision.x;
                 target[i].areaColision.y = target[i].yMundo + target[i].areaColision.y;
+                //Área de colisión ampliada para arreglar error. Sirve más o menos pero habrá que pulirlo.
+                target[i].areaColision.x += 8;
+                target[i].areaColision.y += 16;
 
-                switch (e.apuntandoA){
+                //DEBUG
+                //System.out.println(e.areaColision.x + " " + e.areaColision.y);
+                //System.out.println(target[i].areaColision.x + " " + target[i].areaColision.y);
+
+                switch (e.apuntandoA) {
 
                     case "arriba" -> {
-                        if (e.areaColision.intersects(target[i].areaColision)){
-                            target[i].interaccion("arriba");
-                        }
-                    }
-                    case "abajo" -> {
-                        if (e.areaColision.intersects(target[i].areaColision)){
+                        if (e.areaColision.intersects(target[i].areaColision)) {
                             target[i].interaccion("abajo");
                         }
                     }
+                    case "abajo" -> {
+                        if (e.areaColision.intersects(target[i].areaColision)) {
+                            target[i].interaccion("arriba");
+                        }
+                    }
                     case "izquierda" -> {
-                        if (e.areaColision.intersects(target[i].areaColision)){
-                            target[i].interaccion("izquierda");
+                        if (e.areaColision.intersects(target[i].areaColision)) {
+                            target[i].interaccion("derecha");
                         }
                     }
                     case "derecha" -> {
-                        if (e.areaColision.intersects(target[i].areaColision)){
-                            target[i].interaccion("derecha");
+                        if (e.areaColision.intersects(target[i].areaColision)) {
+                            target[i].interaccion("izquierda");
                         }
                     }
 
                 }
+                //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
+                //la comprobación, no deben cambiar realmente)
+                e.areaColision.x = e.areaColisionDefaultX;
+                e.areaColision.y = e.areaColisionDefaultY;
+                if (target[i] != null) {
+                    target[i].areaColision.x = target[i].areaColisionDefaultX;
+                    target[i].areaColision.y = target[i].areaColisionDefaultY;
+                }
+                entidad = i;
             }
 
         }
-
+        return entidad;
     }
 }

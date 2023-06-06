@@ -20,10 +20,12 @@ public class Entidad {
     public String apuntandoA; //Almacena la información de hacia donde está mirando la entidad
     public int contadorSprite = 0; //Este contador permite cambiar de sprites cada cierto tiempo
     public int spriteActual = 1; //Indica que sprite está usando la entidad actualmente
-    public Rectangle areaColision = new Rectangle(0,0,48,48); //Define el area de colisiones de la entidad para determinar cuando choca contra otros elementos
+    public Rectangle areaColision = new Rectangle(8,16,32,32); //Define el area de colisiones de la entidad para determinar cuando choca contra otros elementos
     public int areaColisionDefaultX, areaColisionDefaultY; //Area de colisión de la entidad
     public boolean colisionOn = false; //Determina si colisiona o no
     public int contadorAcciones = 0; //Esta variable permite definir el tiempo que tardará un npc en hacer su próxima acción.
+    String[] dialogos = new String[20]; //Este array define el número de diálogos que puede tener un npc.
+    int indexDialogo = 0;
 
     //Status de la entidad
     public int vidaMaxima;
@@ -63,6 +65,13 @@ public class Entidad {
 
         this.apuntandoA = apuntandoA;
         System.out.println("Interacción");
+        gamePanel.gameState = gamePanel.dialogueState;
+    }
+
+    public void hablar(){
+
+
+
     }
 
     public void actualizar(){
@@ -75,28 +84,27 @@ public class Entidad {
         Random random = new Random();
         int i = random.nextInt(100)+1;
 
-        if (!colisionOn){ //Solo habilitamos que se mueva el jugador mientras que el valor de colisión sea falso
-            if (apuntandoA.equals("arriba")){
-                if (i <= 1){
-                    yMundo -= speed;
-                }
-            }
-            if (apuntandoA.equals("abajo")){
-                if (i > 1 && i <= 3){
-                    yMundo += speed;
-                }
-            }
-            if (apuntandoA.equals("izquierda")){
-                if (i > 3 && i <= 5){
-                    xMundo -= speed;
-                }
-            }
-            if (apuntandoA.equals("derecha")){
-                if (i > 5 && i <= 7){
-                    xMundo += speed;
-                }
+        if (apuntandoA.equals("arriba")){
+            if (i <= 1){
+                yMundo -= speed;
             }
         }
+        if (apuntandoA.equals("abajo")){
+            if (i > 1 && i <= 3){
+                yMundo += speed;
+            }
+        }
+        if (apuntandoA.equals("izquierda")){
+            if (i > 3 && i <= 5){
+                xMundo -= speed;
+            }
+        }
+        if (apuntandoA.equals("derecha")){
+            if (i > 5 && i <= 7){
+                xMundo += speed;
+            }
+        }
+
 
         if (i <= 7){
             contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
@@ -177,6 +185,11 @@ public class Entidad {
                 }
             }
             g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites, gamePanel.tamanyoFinalSprites, null);
+            //DEBUG
+            if (gamePanel.toogleHitboxes){
+                g2.setColor(Color.red);
+                g2.drawRect(xCamara+8,yCamara+16,32,32);
+            }
         }
     }
 

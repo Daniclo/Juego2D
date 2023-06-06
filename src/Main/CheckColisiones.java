@@ -12,7 +12,7 @@ public class CheckColisiones {
         this.gamePanel = gamePanel;
     }
 
-    public void checkTile(Entidad e){
+    public void checkTile(Entidad e){ //BUG IMPORTANTE EN ESTE MÉTODO
 
         //Se definen los límites del area de colisión:
         int bordeIzquierdoX = e.xMundo + e.areaColision.x;
@@ -38,7 +38,9 @@ public class CheckColisiones {
                 //Comprobamos si alguno de los 2 tiles de arriba es sólido
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
+
                 }
+
             }
             case "abajo" -> {
                 filaInferior = (bordeInferiorY + e.speed) / gamePanel.tamanyoFinalSprites;
@@ -46,7 +48,9 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaInferior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
+                    System.out.println(tileNum1 + " " + tileNum2);
                 }
+
             }
             case "izquierda" -> {
                 columnaIzquierda = (bordeIzquierdoX - e.speed) / gamePanel.tamanyoFinalSprites;
@@ -54,7 +58,9 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaSuperior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
+                    System.out.println(tileNum1 + " " + tileNum2);
                 }
+
             }
             case "derecha" -> {
                 columnaDerecha = (bordeDerechoX + e.speed) / gamePanel.tamanyoFinalSprites;
@@ -62,7 +68,9 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaSuperior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
+                    System.out.println(tileNum1 + " " + tileNum2);
                 }
+
             }
         }
     }

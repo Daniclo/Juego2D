@@ -18,6 +18,7 @@ public class UserInterface {
     //de font por segundo.
     Font arial_40;
     Graphics2D g2;
+    public String dialogoActual = "";
 
     public UserInterface(GamePanel gamePanel){
 
@@ -42,15 +43,46 @@ public class UserInterface {
         //DEBUG
         //System.out.println(gamePanel.gameState);
 
+        dibujarVida(); //Vida del jugador sobre la pantalla.
+
         if (gamePanel.gameState == gamePanel.playState){
             //Play State
         }
         if (gamePanel.gameState == gamePanel.pauseState){
             dibujarMenuPausa();
         }
+        if (gamePanel.gameState == gamePanel.dialogueState){
+            dibujarVentanaDialogo();
+        }
 
-        dibujarVida(); //Vida del jugador sobre la pantalla.
+    }
 
+    public void dibujarVentanaDialogo() {
+
+        //VENTANA
+        int x = gamePanel.tamanyoFinalSprites*2;
+        int y = gamePanel.tamanyoFinalSprites/2;
+        int ancho = gamePanel.anchoPantalla - (gamePanel.tamanyoFinalSprites*4);
+        int alto = gamePanel.tamanyoFinalSprites*5;
+        dibujarSubVentana(x,y,ancho,alto);
+
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN,28F));
+        x += gamePanel.tamanyoFinalSprites;
+        y += gamePanel.tamanyoFinalSprites;
+        g2.drawString(dialogoActual,x,y);
+
+    }
+
+    private void dibujarSubVentana(int x, int y, int ancho, int alto) {
+
+        Color c = new Color(0,0,0,170);
+        g2.setColor(c);
+        g2.fillRoundRect(x,y,ancho,alto,35,35);
+
+        c = new Color(255,255,255);
+        g2.setColor(c);
+        g2.setStroke(new BasicStroke(5));
+        g2.drawRoundRect(x+5,y+5,ancho-10,alto-10,25,25);
     }
 
     public void dibujarMenuPausa() {

@@ -70,7 +70,12 @@ public class Entidad {
 
     public void hablar(){
 
-
+        //Esta línea arregla el bug de pulsar demasiado fuerte la E.
+        gamePanel.jugador.inputs.ePressed = false;
+        if (dialogos[indexDialogo] != null){
+            gamePanel.ui.dialogoActual = dialogos[indexDialogo];
+            indexDialogo++;
+        }
 
     }
 

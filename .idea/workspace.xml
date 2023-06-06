@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="NPC añadido y casi interacción">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Interacción arreglada y diálogos">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Items/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tiles/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -181,6 +174,8 @@
       <workItem from="1685949852688" duration="30000" />
       <workItem from="1685949984562" duration="163000" />
       <workItem from="1685995656958" duration="2493000" />
+      <workItem from="1686048220315" duration="2084000" />
+      <workItem from="1686052746710" duration="1303000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -266,7 +261,14 @@
       <option name="project" value="LOCAL" />
       <updated>1684940466566</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Interacción arreglada y diálogos">
+      <created>1686048675596</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1686048675596</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -296,6 +298,7 @@
     <MESSAGE value="La foca puede rodar" />
     <MESSAGE value="Añadido botón de pausa" />
     <MESSAGE value="NPC añadido y casi interacción" />
-    <option name="LAST_COMMIT_MESSAGE" value="NPC añadido y casi interacción" />
+    <MESSAGE value="Interacción arreglada y diálogos" />
+    <option name="LAST_COMMIT_MESSAGE" value="Interacción arreglada y diálogos" />
   </component>
 </project>

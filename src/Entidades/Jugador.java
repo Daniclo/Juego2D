@@ -144,7 +144,7 @@ public class Jugador extends Entidad{
             }
         }
 
-        if (inputs.ePressedPlay){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
+        if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
                                  //con el que interactuar
 
             gamePanel.checkInteraccion.checkItem(this);
@@ -152,9 +152,6 @@ public class Jugador extends Entidad{
             if (i != 999){
                 gamePanel.entidades[i].hablar();
             }
-        }
-        if (inputs.ePressedDialogue){
-
         }
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización

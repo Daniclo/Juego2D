@@ -15,7 +15,7 @@ public class InputsTeclado implements KeyListener {
 
     //Estos valores booleanos indican cuando una tecla está siendo pulsada o no. Usaremos los métodos para
     //actualizarlos al pulsar y soltar las  teclas.
-    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressedPlay, ePressedDialogue;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -46,7 +46,7 @@ public class InputsTeclado implements KeyListener {
                 spacePressed = true;
             }
             if (code == KeyEvent.VK_E){
-                ePressedPlay = true;
+                ePressed = true;
             }
             if (code == KeyEvent.VK_Q){
                 if (gamePanel.toogleHitboxes){
@@ -60,7 +60,8 @@ public class InputsTeclado implements KeyListener {
         //DIALOGUESTATE
         if (gamePanel.gameState == gamePanel.dialogueState){
             if (code == KeyEvent.VK_E){
-
+                ePressed=false;
+                gamePanel.gameState = gamePanel.playState;
             }
         }
 
@@ -96,8 +97,7 @@ public class InputsTeclado implements KeyListener {
             spacePressed = false;
         }
         if (code == KeyEvent.VK_E){
-            ePressedPlay = false;
-            ePressedDialogue = false;
+            ePressed = false;
         }
     }
 }

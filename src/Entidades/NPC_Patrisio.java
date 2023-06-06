@@ -68,17 +68,10 @@ public class NPC_Patrisio extends Entidad{
     }
     public void setDialogos(){
 
-        dialogos[0] = "En 1614 un galeón japonés desembarcó a orillas del río guadalquivir.";
-        dialogos[1] = "Y el emperador se enamoró de una bella sevillana y se quedó allí a vivir.";
-        dialogos[2] = "Muchos años después, Paco Japón es el heredero al trono.";
+        dialogos[0] = "En 1614 un galeón japonés desembarcó \na orillas del río guadalquivir.";
+        dialogos[1] = "Y el emperador se enamoró de una bella \nsevillana y se quedó allí a vivir.";
+        dialogos[2] = "Muchos años después, Paco Japón es el \nheredero al trono.";
         dialogos[3] = "¿Esto es wakamole no?";
-
-    }
-    @Override
-    public void hablar(){
-
-        gamePanel.ui.dialogoActual = dialogos[indexDialogo];
-        indexDialogo++;
 
     }
 

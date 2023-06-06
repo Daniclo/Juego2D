@@ -69,7 +69,11 @@ public class UserInterface {
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN,28F));
         x += gamePanel.tamanyoFinalSprites;
         y += gamePanel.tamanyoFinalSprites;
-        g2.drawString(dialogoActual,x,y);
+
+        for (String linea:dialogoActual.split("\n")){
+            g2.drawString(linea,x,y);
+            y+=40;
+        }
 
     }
 

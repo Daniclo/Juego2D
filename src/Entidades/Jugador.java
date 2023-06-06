@@ -147,10 +147,26 @@ public class Jugador extends Entidad{
         if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
                                  //con el que interactuar
 
-            gamePanel.checkInteraccion.checkItem(this);
-            int i = gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
-            if (i != 999){
-                gamePanel.entidades[i].hablar();
+            int item = gamePanel.checkInteraccion.checkItem(this);
+            //DEBUG
+            //System.out.println(item);
+            if (item != 999){
+
+                switch (item) {
+                    case 0 -> gamePanel.msg.mostrarMensaje(0);
+                    case 1,2,3,4 -> {
+                        if (!tienePezGlobo){
+                            gamePanel.msg.mostrarMensaje(1);
+                        }
+                    }
+                }
+
+            }
+            int npc = gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
+            //DEBUG
+            System.out.println(npc);
+            if (npc != 999){
+                gamePanel.entidades[npc].hablar();
             }
         }
     }

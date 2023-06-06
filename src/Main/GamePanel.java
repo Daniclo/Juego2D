@@ -2,6 +2,7 @@ package Main;
 
 import Entidades.Entidad;
 import Entidades.Jugador;
+import Entidades.Mensaje;
 import Items.Item;
 import Tiles.TileManager;
 import javax.swing.*;
@@ -46,6 +47,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Jugador jugador = new Jugador(this,inputs);
     public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
     public Entidad[] entidades = new Entidad[10]; //Indica el número de entidades que pueden haber a la vez en el mapa. Igual que los objetos.
+    public Mensaje msg = new Mensaje(this);
 
     //Game state
     public int gameState;

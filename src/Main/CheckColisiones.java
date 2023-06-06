@@ -48,7 +48,7 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaInferior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
-                    System.out.println(tileNum1 + " " + tileNum2);
+                    //System.out.println(tileNum1 + " " + tileNum2);
                 }
 
             }
@@ -58,7 +58,7 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaIzquierda][filaSuperior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
-                    System.out.println(tileNum1 + " " + tileNum2);
+                    //System.out.println(tileNum1 + " " + tileNum2);
                 }
 
             }
@@ -68,7 +68,7 @@ public class CheckColisiones {
                 tileNum2 = gamePanel.tileManager.mapTileNum[columnaDerecha][filaSuperior];
                 if (gamePanel.tileManager.tile[tileNum1].colision || gamePanel.tileManager.tile[tileNum2].colision) {
                     e.colisionOn = true;
-                    System.out.println(tileNum1 + " " + tileNum2);
+                    //System.out.println(tileNum1 + " " + tileNum2);
                 }
 
             }

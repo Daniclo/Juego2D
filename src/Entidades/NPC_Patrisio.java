@@ -66,12 +66,28 @@ public class NPC_Patrisio extends Entidad{
         gamePanel.checkColisiones.checkTile(this);
         gamePanel.checkColisiones.checkEntitdad(this, gamePanel.entidades);
     }
-    public void setDialogos(){
+    public void setDialogos(){ //Este método define todos los mensajes que el sistema puede mostrar.
 
-        dialogos[0] = "En 1614 un galeón japonés desembarcó \na orillas del río guadalquivir.";
-        dialogos[1] = "Y el emperador se enamoró de una bella \nsevillana y se quedó allí a vivir.";
-        dialogos[2] = "Muchos años después, Paco Japón es el \nheredero al trono.";
-        dialogos[3] = "¿Esto es wakamole no?";
+        this.dialogos[0] = "En 1614 un galeón japonés desembarcó \na orillas del río guadalquivir y el emperador \nse enamoró de una bella sevillana y se \nquedó allí a vivir.";
+        this.dialogos[1] = "Ahora, muchos años después, Paco Japón \nes el heredero al trono.";
+        this.dialogos[2] = "¿Esto es wakamole no?";
+
+    }
+    @Override
+    public void hablar(){ //Este método muestra uno por uno los diálogos del NPC y se asegura de que el NPC siempre muestre
+                            //en bucle el último diálogo definido una vez que los has leído todos.
+
+        //Esta línea arregla el bug de pulsar demasiado fuerte la E.
+        gamePanel.jugador.inputs.ePressed = false;
+        //Este if hace que el npc siempre se quede diciendo su última frase.
+        if (dialogoAcabado){
+            indexDialogo = 2;
+        }
+        gamePanel.ui.dialogoActual = dialogos[indexDialogo];
+        indexDialogo++;
+        if (indexDialogo == 3){
+            dialogoAcabado = true;
+        }
 
     }
 

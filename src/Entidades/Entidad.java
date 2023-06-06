@@ -24,8 +24,11 @@ public class Entidad {
     public int areaColisionDefaultX, areaColisionDefaultY; //Area de colisión de la entidad
     public boolean colisionOn = false; //Determina si colisiona o no
     public int contadorAcciones = 0; //Esta variable permite definir el tiempo que tardará un npc en hacer su próxima acción.
+
+    //DIÁLOGOS
     String[] dialogos = new String[20]; //Este array define el número de diálogos que puede tener un npc.
     int indexDialogo = 0;
+    boolean dialogoAcabado;
 
     //Status de la entidad
     public int vidaMaxima;
@@ -36,6 +39,7 @@ public class Entidad {
         this.gamePanel = gamePanel;
 
     }
+
 
     public BufferedImage setUpSprite(String ruta){ //Devuelve la imagen escalada por medio del método de uTool.
 
@@ -64,22 +68,28 @@ public class Entidad {
     public void interaccion(String apuntandoA){ //Este método define las acciones de la entidad al interactuar con ella
 
         this.apuntandoA = apuntandoA;
-        System.out.println("Interacción");
+        //DEBUG
+        //System.out.println("Interacción");
         gamePanel.gameState = gamePanel.dialogueState;
     }
 
-    public void hablar(){
+    public void hablar(){ //Este método muestra uno por uno los diálogos del NPC y se asegura de que el NPC siempre muestre
+                            //en bucle el último diálogo definido una vez que los has leído todos.
 
         //Esta línea arregla el bug de pulsar demasiado fuerte la E.
         gamePanel.jugador.inputs.ePressed = false;
         if (dialogos[indexDialogo] != null){
             gamePanel.ui.dialogoActual = dialogos[indexDialogo];
             indexDialogo++;
+            if (indexDialogo>=this.dialogos.length-1){
+                indexDialogo = this.dialogos.length-1;
+                gamePanel.ui.dialogoActual = dialogos[indexDialogo];
+            }
         }
 
     }
 
-    public void actualizar(){
+    public void actualizar(){ //Actualiza la información de la entidad
 
         setAccion();
 
@@ -124,7 +134,7 @@ public class Entidad {
         }
     }
 
-    public void dibujar(Graphics2D g2) {
+    public void dibujar(Graphics2D g2) { //Dibuja a la entidad
 
         //Utilizamos la x y la y en el mundo para calcular la posición en pantalla
         int xCamara = xMundo - gamePanel.jugador.xMundo + gamePanel.jugador.xCamara;

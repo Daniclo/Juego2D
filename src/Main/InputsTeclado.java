@@ -56,12 +56,11 @@ public class InputsTeclado implements KeyListener {
                 }
             }
         }
-
         //DIALOGUESTATE
         if (gamePanel.gameState == gamePanel.dialogueState){
             if (code == KeyEvent.VK_E){
-                ePressed=false;
                 gamePanel.gameState = gamePanel.playState;
+                gamePanel.ui.dialogoActual = null;
             }
         }
 
@@ -99,5 +98,6 @@ public class InputsTeclado implements KeyListener {
         if (code == KeyEvent.VK_E){
             ePressed = false;
         }
+
     }
 }

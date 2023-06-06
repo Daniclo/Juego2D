@@ -67,12 +67,14 @@ public class UserInterface {
         dibujarSubVentana(x,y,ancho,alto);
 
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN,28F));
-        x += gamePanel.tamanyoFinalSprites;
+        x += gamePanel.tamanyoFinalSprites/2;
         y += gamePanel.tamanyoFinalSprites;
 
-        for (String linea:dialogoActual.split("\n")){
-            g2.drawString(linea,x,y);
-            y+=40;
+        if (dialogoActual != null){
+            for (String linea:dialogoActual.split("\n")){
+                g2.drawString(linea,x,y);
+                y+=40;
+            }
         }
 
     }

@@ -15,11 +15,12 @@ public class CheckInteraccion {
         this.gamePanel = gamePanel;
     }
 
-    public void checkItem(Jugador e){
+    public int checkItem(Jugador e) {
 
-        for (int i=0;i<gamePanel.items.length;i++){
+        int item = 999;
+        for (int i = 0; i < gamePanel.items.length; i++) {
 
-            if (gamePanel.items[i] != null){
+            if (gamePanel.items[i] != null) {
 
                 //Conseguimos el área de colisión de la entidad
                 e.areaColision.x = e.xMundo + e.areaColision.x;
@@ -40,6 +41,7 @@ public class CheckInteraccion {
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)) {
                             String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
                             obtenerObjetos(nombre, e);
+                            item = i;
                         }
                     }
                     case "abajo" -> {
@@ -47,6 +49,7 @@ public class CheckInteraccion {
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)) {
                             String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
                             obtenerObjetos(nombre, e);
+                            item = i;
                         }
                     }
                     case "izquierda" -> {
@@ -54,6 +57,7 @@ public class CheckInteraccion {
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)) {
                             String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
                             obtenerObjetos(nombre, e);
+                            item = i;
                         }
                     }
                     case "derecha" -> {
@@ -61,6 +65,7 @@ public class CheckInteraccion {
                         if (e.areaColision.intersects(gamePanel.items[i].areaColision)) {
                             String nombre = gamePanel.items[i].nombre; //Se almacena el nombre del objeto y se envía a otro método para manejarlo
                             obtenerObjetos(nombre, e);
+                            item = i;
                         }
                     }
                 }
@@ -68,12 +73,13 @@ public class CheckInteraccion {
                 //la comprobación, no deben cambiar realmente)
                 e.areaColision.x = e.areaColisionDefaultX;
                 e.areaColision.y = e.areaColisionDefaultY;
-                if (gamePanel.items[i] != null){
+                if (gamePanel.items[i] != null) {
                     gamePanel.items[i].areaColision.x = gamePanel.items[i].areaColisionDefaultX;
                     gamePanel.items[i].areaColision.y = gamePanel.items[i].areaColisionDefaultY;
                 }
             }
         }
+        return item;
     }
 
     public void obtenerObjetos(String nombre, Jugador e){ //Este método comprueba con qué item has interactuado y resuelve
@@ -83,7 +89,9 @@ public class CheckInteraccion {
             e.tienePezGlobo = true;
             gamePanel.items[0] = null;
             gamePanel.reproducirSonido(1);
+            e.vida--;
         }
+
     }
 
     public int checkNPC(Jugador e, Entidad[] target) {
@@ -113,21 +121,25 @@ public class CheckInteraccion {
                     case "arriba" -> {
                         if (e.areaColision.intersects(target[i].areaColision)) {
                             target[i].interaccion("abajo");
+                            entidad = i;
                         }
                     }
                     case "abajo" -> {
                         if (e.areaColision.intersects(target[i].areaColision)) {
                             target[i].interaccion("arriba");
+                            entidad = i;
                         }
                     }
                     case "izquierda" -> {
                         if (e.areaColision.intersects(target[i].areaColision)) {
                             target[i].interaccion("derecha");
+                            entidad = i;
                         }
                     }
                     case "derecha" -> {
                         if (e.areaColision.intersects(target[i].areaColision)) {
                             target[i].interaccion("izquierda");
+                            entidad = i;
                         }
                     }
 
@@ -140,7 +152,6 @@ public class CheckInteraccion {
                     target[i].areaColision.x = target[i].areaColisionDefaultX;
                     target[i].areaColision.y = target[i].areaColisionDefaultY;
                 }
-                entidad = i;
             }
 
         }

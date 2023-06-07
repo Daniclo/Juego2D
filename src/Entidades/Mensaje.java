@@ -1,7 +1,6 @@
 package Entidades;
 
 import Main.GamePanel;
-
 public class Mensaje {
 
     //Esta clase almacena una serie de diálogos que no pertenecen a ningún NPC y que se muestran cuando el personaje

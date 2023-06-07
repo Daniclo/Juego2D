@@ -46,8 +46,9 @@ public class GamePanel extends JPanel implements Runnable{
     //Clases que gestionan las entidades e items
     public Jugador jugador = new Jugador(this,inputs);
     public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
-    public Entidad[] entidades = new Entidad[10]; //Indica el número de entidades que pueden haber a la vez en el mapa. Igual que los objetos.
-    public Mensaje msg = new Mensaje(this);
+    public Entidad[] npcs = new Entidad[10]; //Indica el número de entidades que pueden haber a la vez en el mapa. Igual que los objetos.
+    public Entidad[] enemigos = new Entidad[20]; //Número de enemigos que pueden haber a la vez en el mapa.
+    public Mensaje msg = new Mensaje(this); //Instanciación de la clase msg que permite mostrar mensajes por pantalla.
 
     //Game state
     public int gameState;
@@ -74,6 +75,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         assetSetter.setItems();
         assetSetter.setNPC();
+        assetSetter.setEnemigo();
         sonandoAhora = reproducirMusica(0);
         gameState = playState;
 
@@ -125,9 +127,15 @@ public class GamePanel extends JPanel implements Runnable{
             //Jugador
             jugador.actualizar(); //Obtener datos del jugador
             //NPCs
-            for (int i = 0; i<entidades.length;i++){
-                if (entidades[i] != null){
-                    entidades[i].actualizar();
+            for (Entidad entidad : npcs) {
+                if (entidad != null) {
+                    entidad.actualizar();
+                }
+            }
+            //Enemigos
+            for (Entidad enemigo : enemigos){
+                if (enemigo != null){
+                    enemigo.actualizar();
                 }
             }
 
@@ -137,9 +145,7 @@ public class GamePanel extends JPanel implements Runnable{
             //}
         }
         if (gameState == pauseState){
-
-
-
+            System.out.println("Pausa");
             //detenerMusica();
         }
         if (gameState == dialogueState){
@@ -147,7 +153,6 @@ public class GamePanel extends JPanel implements Runnable{
             ui.dibujarVentanaDialogo();
 
         }
-
 
     }
     public void paintComponent(Graphics g){
@@ -157,7 +162,7 @@ public class GamePanel extends JPanel implements Runnable{
         Graphics2D g2 = (Graphics2D) g;
 
         //DEBUG
-        long comienzoRender = 0;
+        long comienzoRender;
         comienzoRender = System.nanoTime();
 
         tileManager.dibujar(g2); //Dibujar el mapa. Siempre se dibujan los tiles por encima de las entidades y objetos.
@@ -172,9 +177,15 @@ public class GamePanel extends JPanel implements Runnable{
         jugador.dibujar(g2); //Dibujar al jugador.
 
         //NPCs
-        for (int i=0;i<entidades.length;i++){
-            if (entidades[i] != null){
-                entidades[i].dibujar(g2);
+        for (Entidad entidad : npcs) {
+            if (entidad != null) {
+                entidad.dibujar(g2);
+            }
+        }
+        //Enemigos
+        for (Entidad enemigo : enemigos){
+            if (enemigo != null){
+                enemigo.dibujar(g2);
             }
         }
 
@@ -182,7 +193,6 @@ public class GamePanel extends JPanel implements Runnable{
 
         //DEBUG
         long finRender = System.nanoTime();
-        long tiempoRender = finRender - comienzoRender;
         //System.out.println("Tiempo de renderizado: " + tiempoRender);
 
         g2.dispose();

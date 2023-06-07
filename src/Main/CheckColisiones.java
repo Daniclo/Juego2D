@@ -1,6 +1,7 @@
 package Main;
 
 import Entidades.Entidad;
+import Entidades.Jugador;
 
 public class CheckColisiones {
 
@@ -12,7 +13,7 @@ public class CheckColisiones {
         this.gamePanel = gamePanel;
     }
 
-    public void checkTile(Entidad e){ //BUG IMPORTANTE EN ESTE MÉTODO
+    public void checkTile(Entidad e){
 
         //Se definen los límites del area de colisión:
         int bordeIzquierdoX = e.xMundo + e.areaColision.x;
@@ -167,14 +168,67 @@ public class CheckColisiones {
         }
 
     }
+    public void checkJugador(Entidad e, Jugador j){
+
+        if (j != null){
+
+            //Conseguimos el área de colisión de la entidad que colisiona
+            e.areaColision.x = e.xMundo + e.areaColision.x;
+            e.areaColision.y = e.yMundo + e.areaColision.y;
+
+            //Conseguimos el área de colisión de la entidad colisionada (target)
+            j.areaColision.x = j.xMundo + j.areaColision.x;
+            j.areaColision.y = j.yMundo + j.areaColision.y;
+
+            switch (e.apuntandoA) {
+                //Establecemos la colisión correspondiente dependiendo de la dirección
+                case "arriba" -> {
+                    e.areaColision.y -= e.speed;
+                    establecerColisionJugador(e,j);
+                }
+                case "abajo" -> {
+                    e.areaColision.y += e.speed;
+                    establecerColisionJugador(e,j);
+                }
+                case "izquierda" -> {
+                    e.areaColision.x -= e.speed;
+                    establecerColisionJugador(e,j);
+                }
+                case "derecha" -> {
+                    e.areaColision.x += e.speed;
+                    establecerColisionJugador(e,j);
+                }
+            }
+            //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
+            //la comprobación, no deben cambiar realmente)
+            e.areaColision.x = e.areaColisionDefaultX;
+            e.areaColision.y = e.areaColisionDefaultY;
+            j.areaColision.x = j.areaColisionDefaultX;
+            j.areaColision.y = j.areaColisionDefaultY;
+        }
+
+    }
 
     private void establecerColisionEntidad(Entidad e, int i, Entidad[] target){
 
         //Se comprueba si se tocan las áreas de colisión con el método intersects una vez se mueva la entidad.
         if (e.areaColision.intersects(target[i].areaColision)){
-            e.colisionOn = true;
-            target[i].colisionOn = true;
+            if (target[i] != e){
+                e.colisionOn = true;
+                target[i].colisionOn = true;
+            }
         }
+    }
+    private void establecerColisionJugador(Entidad e,Jugador j){
+
+        //Se comprueba si se tocan las áreas de colisión con el método intersects una vez se mueva la entidad.
+        if (e.areaColision.intersects(j.areaColision)){
+            if (j != e){
+                e.colisionOn = true;
+                j.colisionOn = true;
+            }
+        }
+
     }
 
     private void establecerColisionItem(Entidad e, int i) {

@@ -72,8 +72,10 @@ public class UserInterface {
 
         if (dialogoActual != null){
             for (String linea:dialogoActual.split("\n")){
-                g2.drawString(linea,x,y);
-                y+=40;
+                if (g2 != null){
+                    g2.drawString(linea,x,y);
+                    y+=40;
+                }
             }
         }
 

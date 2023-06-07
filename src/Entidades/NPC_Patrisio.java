@@ -64,7 +64,7 @@ public class NPC_Patrisio extends Entidad{
         gamePanel.checkColisiones.checkTile(this);
         colisionOn = false;
         gamePanel.checkColisiones.checkTile(this);
-        gamePanel.checkColisiones.checkEntitdad(this, gamePanel.entidades);
+        gamePanel.checkColisiones.checkEntitdad(this, gamePanel.npcs);
     }
     public void setDialogos(){ //Este método define todos los mensajes que el sistema puede mostrar.
 

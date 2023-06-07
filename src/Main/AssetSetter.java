@@ -1,6 +1,7 @@
 package Main;
 
 import Entidades.NPC_Patrisio;
+import Entidades.enemigos.Rana;
 import Items.ItemPezGlobo;
 import Items.Roca;
 
@@ -38,12 +39,22 @@ public class AssetSetter {
         gamePanel.items[4].yMundo = 300;
 
     }
-
     public void setNPC(){
 
-        gamePanel.entidades[0] = new NPC_Patrisio(gamePanel);
-        gamePanel.entidades[0].xMundo = 551;
-        gamePanel.entidades[0].yMundo = 184;
+        gamePanel.npcs[0] = new NPC_Patrisio(gamePanel);
+        gamePanel.npcs[0].xMundo = 551;
+        gamePanel.npcs[0].yMundo = 184;
+
+    }
+    public void setEnemigo(){
+
+        gamePanel.enemigos[0] = new Rana(gamePanel);
+        gamePanel.enemigos[0].xMundo = 724;
+        gamePanel.enemigos[0].yMundo = 515;
+
+        gamePanel.enemigos[1] = new Rana(gamePanel);
+        gamePanel.enemigos[1].xMundo = 870;
+        gamePanel.enemigos[1].yMundo = 515;
 
     }
 

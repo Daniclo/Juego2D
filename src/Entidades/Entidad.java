@@ -14,6 +14,7 @@ public class Entidad {
     //Esta clase será la clase padre de las clases del jugador, npcs y enemigos
 
     GamePanel gamePanel;
+    public String nombre;
     public int xMundo, yMundo; //Posición de la entidad en el mundo
     public int speed; //Velocidad a la que se desplaza la entidad
     public BufferedImage arriba1, arriba2, abajo1, abajo2, izquierda1, izquierda2, derecha1, derecha2; //Almacena las animaciones de movimiento de las entidades
@@ -59,9 +60,31 @@ public class Entidad {
 
     }
 
-    public void setAccion(){ //Este método define los movimientos del npc.
+    public void setAccion(){ //Este método define los movimientos de la entidad.
 
+        Random random = new Random();
+        int i = random.nextInt(100)+1;
 
+        if (apuntandoA.equals("arriba")){
+            if (i <= 1){
+                yMundo -= speed;
+            }
+        }
+        if (apuntandoA.equals("abajo")){
+            if (i > 1 && i <= 3){
+                yMundo += speed;
+            }
+        }
+        if (apuntandoA.equals("izquierda")){
+            if (i > 3 && i <= 5){
+                xMundo -= speed;
+            }
+        }
+        if (apuntandoA.equals("derecha")){
+            if (i > 5 && i <= 7){
+                xMundo += speed;
+            }
+        }
 
     }
 
@@ -95,43 +118,29 @@ public class Entidad {
 
         colisionOn = false;
         gamePanel.checkColisiones.checkTile(this);
-        gamePanel.checkColisiones.checkEntitdad(this, gamePanel.entidades);
-        Random random = new Random();
-        int i = random.nextInt(100)+1;
+        gamePanel.checkColisiones.checkEntitdad(this, gamePanel.npcs);
+        gamePanel.checkColisiones.checkEntitdad(this, gamePanel.enemigos);
+        gamePanel.checkColisiones.checkJugador(this,gamePanel.jugador);
 
-        if (apuntandoA.equals("arriba")){
-            if (i <= 1){
-                yMundo -= speed;
-            }
-        }
-        if (apuntandoA.equals("abajo")){
-            if (i > 1 && i <= 3){
-                yMundo += speed;
-            }
-        }
-        if (apuntandoA.equals("izquierda")){
-            if (i > 3 && i <= 5){
-                xMundo -= speed;
-            }
-        }
-        if (apuntandoA.equals("derecha")){
-            if (i > 5 && i <= 7){
-                xMundo += speed;
+        if (!colisionOn){
+            switch (apuntandoA){
+                case "arriba" -> yMundo -= speed;
+                case "abajo" -> yMundo += speed;
+                case "izquierda" -> xMundo -= speed;
+                case "derecha" -> xMundo += speed;
             }
         }
 
-
-        if (i <= 7){
-            contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
-            if (contadorSprite > 12){ //Este número determina la velocidad a la que cambian los sprites.
-                if (spriteActual == 1){
-                    spriteActual = 2;
-                }else if (spriteActual == 2){
-                    spriteActual = 1;
-                }
-                contadorSprite = 0;
+        contadorSprite++; //Esto nos permite cambiar al siguiente sprite después de cada movimiento para simular la animación de caminar
+        if (contadorSprite > 12){ //Este número determina la velocidad a la que cambian los sprites.
+            if (spriteActual == 1){
+                spriteActual = 2;
+            }else if (spriteActual == 2){
+                spriteActual = 1;
             }
+            contadorSprite = 0;
         }
+
     }
 
     public void dibujar(Graphics2D g2) { //Dibuja a la entidad

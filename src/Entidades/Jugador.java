@@ -110,8 +110,11 @@ public class Jugador extends Entidad{
             //Le pasamos esta entidad al check de colisiones de objetos.
             gamePanel.checkColisiones.checkItem(this);
 
-            //Comprobamos colisiones con otras entidades
-            gamePanel.checkColisiones.checkEntitdad(this, gamePanel.entidades);
+            //Comprobamos colisiones con npcs.
+            gamePanel.checkColisiones.checkEntitdad(this, gamePanel.npcs);
+
+            //Comprobamos colisiones con enemigos.
+            gamePanel.checkColisiones.checkEntitdad(this, gamePanel.enemigos);
 
             if (!colisionOn){ //Solo habilitamos que se mueva el jugador mientras que el valor de colisión sea falso
                 if (inputs.upPressed){
@@ -162,11 +165,11 @@ public class Jugador extends Entidad{
                 }
 
             }
-            int npc = gamePanel.checkInteraccion.checkNPC(this, gamePanel.entidades);
+            int npc = gamePanel.checkInteraccion.checkNPC(this, gamePanel.npcs);
             //DEBUG
-            System.out.println(npc);
+            //System.out.println(npc);
             if (npc != 999){
-                gamePanel.entidades[npc].hablar();
+                gamePanel.npcs[npc].hablar();
             }
         }
     }

@@ -142,18 +142,30 @@ public class CheckColisiones {
                     case "arriba" -> {
                         e.areaColision.y -= e.speed;
                         establecerColisionEntidad(e,i,target);
+                        if (target == gamePanel.enemigos && e == gamePanel.jugador){ //Si la interacción entre entidades es entre jugador y enemigo, el jugador recibe daño
+                            establecerDMGColisionEnemigo(i);
+                        }
                     }
                     case "abajo" -> {
                         e.areaColision.y += e.speed;
                         establecerColisionEntidad(e,i,target);
+                        if (target == gamePanel.enemigos && e == gamePanel.jugador){ //Si la interacción entre entidades es entre jugador y enemigo, el jugador recibe daño
+                            establecerDMGColisionEnemigo(i);
+                        }
                     }
                     case "izquierda" -> {
                         e.areaColision.x -= e.speed;
                         establecerColisionEntidad(e,i,target);
+                        if (target == gamePanel.enemigos && e == gamePanel.jugador){ //Si la interacción entre entidades es entre jugador y enemigo, el jugador recibe daño
+                            establecerDMGColisionEnemigo(i);
+                        }
                     }
                     case "derecha" -> {
                         e.areaColision.x += e.speed;
                         establecerColisionEntidad(e,i,target);
+                        if (target == gamePanel.enemigos && e == gamePanel.jugador){ //Si la interacción entre entidades es entre jugador y enemigo, el jugador recibe daño
+                            establecerDMGColisionEnemigo(i);
+                        }
                     }
                 }
                 //Reseteamos los valores originales de la x e y de la entidad y objeto (solo queremos cambiarlos para
@@ -247,5 +259,18 @@ public class CheckColisiones {
                 }
             }
         }
+    }
+    private void establecerDMGColisionEnemigo(int i){
+
+        if (gamePanel.jugador.areaColision.intersects(gamePanel.enemigos[i].areaColision)){
+            String nombre = gamePanel.enemigos[i].nombre;
+            switch (nombre){
+                case "Rana" -> {
+                    gamePanel.jugador.vida--;
+                    gamePanel.reproducirSonido(3);
+                }
+            }
+        }
+
     }
 }

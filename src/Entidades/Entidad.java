@@ -21,7 +21,7 @@ public class Entidad {
     public String apuntandoA; //Almacena la información de hacia donde está mirando la entidad
     public int contadorSprite = 0; //Este contador permite cambiar de sprites cada cierto tiempo
     public int spriteActual = 1; //Indica que sprite está usando la entidad actualmente
-    public Rectangle areaColision = new Rectangle(8,16,32,32); //Define el area de colisiones de la entidad para determinar cuando choca contra otros elementos
+    public Rectangle areaColision = new Rectangle(8,+16,32,32); //Define el area de colisiones de la entidad para determinar cuando choca contra otros elementos
     public int areaColisionDefaultX, areaColisionDefaultY; //Area de colisión de la entidad
     public boolean colisionOn = false; //Determina si colisiona o no
     public int contadorAcciones = 0; //Esta variable permite definir el tiempo que tardará un npc en hacer su próxima acción.

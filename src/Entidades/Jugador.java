@@ -31,7 +31,7 @@ public class Jugador extends Entidad{
         xCamara = gamePanel.anchoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
         yCamara = gamePanel.altoPantalla/2 - (gamePanel.tamanyoFinalSprites/2);
 
-        areaColision = new Rectangle(8,16,32,32); //Estos valores definen el area de colisión del jugador
+        areaColision = new Rectangle(8,+16,32,32); //Estos valores definen el area de colisión del jugador
         //Los valores del área de colisión van a alterar, así que los almacenamos en otras variables para poder acceder de nuevo a ellos
         areaColisionDefaultX = areaColision.x;
         areaColisionDefaultY = areaColision.y;

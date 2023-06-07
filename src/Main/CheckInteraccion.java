@@ -109,8 +109,10 @@ public class CheckInteraccion {
                 target[i].areaColision.x = target[i].xMundo + target[i].areaColision.x;
                 target[i].areaColision.y = target[i].yMundo + target[i].areaColision.y;
                 //Área de colisión ampliada para arreglar error. Sirve más o menos pero habrá que pulirlo.
-                target[i].areaColision.x += 8;
-                target[i].areaColision.y += 16;
+                target[i].areaColision.x -= 4;
+                target[i].areaColision.y -= 4;
+                target[i].areaColision.width += 8;
+                target[i].areaColision.height += 8;
 
                 //DEBUG
                 //System.out.println(e.areaColision.x + " " + e.areaColision.y);
@@ -148,10 +150,11 @@ public class CheckInteraccion {
                 //la comprobación, no deben cambiar realmente)
                 e.areaColision.x = e.areaColisionDefaultX;
                 e.areaColision.y = e.areaColisionDefaultY;
-                if (target[i] != null) {
-                    target[i].areaColision.x = target[i].areaColisionDefaultX;
-                    target[i].areaColision.y = target[i].areaColisionDefaultY;
-                }
+                target[i].areaColision.width -= 8;
+                target[i].areaColision.height -= 8;
+                target[i].areaColision.x = target[i].areaColisionDefaultX;
+                target[i].areaColision.y = target[i].areaColisionDefaultY;
+
             }
 
         }

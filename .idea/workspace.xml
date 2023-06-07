@@ -4,25 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="BUGFIX DIÁLOGOS">
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_abajo_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_abajo_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_arriba_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_arriba_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_derecha_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_derecha_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_izquierda_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/enemigos/Rana_andar/Rana_izquierda_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="RANA AÑADIDA">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Mensaje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Mensaje.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckInteraccion.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +178,7 @@
       <workItem from="1686092996622" duration="765000" />
       <workItem from="1686128649515" duration="2621000" />
       <workItem from="1686131945206" duration="2226000" />
-      <workItem from="1686136943314" duration="2762000" />
+      <workItem from="1686136943314" duration="3444000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -299,7 +285,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686080248291</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="RANA AÑADIDA">
+      <created>1686139843729</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1686139843729</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -332,6 +325,7 @@
     <MESSAGE value="Interacción arreglada y diálogos" />
     <MESSAGE value="DIÁLOGOS ACABABADOS" />
     <MESSAGE value="BUGFIX DIÁLOGOS" />
-    <option name="LAST_COMMIT_MESSAGE" value="BUGFIX DIÁLOGOS" />
+    <MESSAGE value="RANA AÑADIDA" />
+    <option name="LAST_COMMIT_MESSAGE" value="RANA AÑADIDA" />
   </component>
 </project>

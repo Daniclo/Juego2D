@@ -15,6 +15,7 @@ public class Rana extends Entidad {
         vida = vidaMaxima;
         getSprites();
         apuntandoA = "abajo";
+        tipoEntidad = 2; //Es un enemigo.
     }
     public void getSprites(){
 

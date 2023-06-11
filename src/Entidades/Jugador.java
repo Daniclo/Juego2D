@@ -11,7 +11,6 @@ public class Jugador extends Entidad{
     //interacciones con el resto del juego.
 
     public InputsTeclado inputs;
-
     public final int xCamara;
     public final int yCamara;
 
@@ -21,6 +20,8 @@ public class Jugador extends Entidad{
 
     //OBJETOS QUE PUEDE CONSEGUIR EL JUGADOR
     public boolean tienePezGlobo = false;
+    public boolean puedeRodar = true;
+    public int contadorRodar = 0;
 
     public Jugador(GamePanel gamePanel, InputsTeclado inputs){ //Instanciamos los inputs y el panel de juego para poder
                                                                 //utilizarlos en esta clase
@@ -38,6 +39,8 @@ public class Jugador extends Entidad{
 
         valoresPorDefecto(); //Cuando se construye un objeto jugador, se establecen estos valores
         getSpritesJugador(); //Se llama al método cada vez que se construye un jugador para asignarle sprites
+
+        tipoEntidad = 0; //Es un jugador
     }
 
     public void valoresPorDefecto(){ //Definimos una serie de atributos iniciales para el jugador
@@ -103,6 +106,7 @@ public class Jugador extends Entidad{
             //System.out.println("x: " + xMundo);
             //System.out.println("y: " + yMundo);
 
+            //Colisiones
             colisionOn = false;
 
             gamePanel.checkColisiones.checkTile( this); //Le pasamos esta entidad (en este caso el jugaddor) al check de colisiones de tiles en cada actualización
@@ -147,8 +151,8 @@ public class Jugador extends Entidad{
             }
         }
 
-        if (inputs.ePressed){ //Cuando se pulsa el botón E de interacción, se comprueba si existe delante un objeto
-                                 //con el que interactuar
+        //Interacciones
+        if (inputs.ePressed){
 
             int item = gamePanel.checkInteraccion.checkItem(this);
             //DEBUG
@@ -168,10 +172,30 @@ public class Jugador extends Entidad{
             int npc = gamePanel.checkInteraccion.checkNPC(this, gamePanel.npcs);
             //DEBUG
             //System.out.println(npc);
+
             if (npc != 999){
                 gamePanel.npcs[npc].hablar();
             }
         }
+
+        //Invencibilidad
+        if (invencibleOn){
+            contadorInvencible++;
+            if (contadorInvencible>60){
+                invencibleOn = false;
+                contadorInvencible = 0;
+            }
+        }
+
+        //Cooldown ataque
+        if (!puedeRodar){
+            contadorRodar++;
+            if (contadorRodar>250){
+                puedeRodar = true;
+                contadorRodar = 0;
+            }
+        }
+
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización
 
@@ -179,105 +203,57 @@ public class Jugador extends Entidad{
         switch (apuntandoA) {
             case "arriba" -> {//Comprueba cual de los 2 sprites tiene que usar ahora y lo asigna en cada actualización para cada dirección.
                                 //Además, si tienes pez globo y estás corriendo cambia los sprites.
-                if (tienePezGlobo && inputs.spacePressed){
-                    if (spriteActual == 1){
-                        image = rodarArriba1;
-                    }
-                    if (spriteActual == 2){
-                        image = rodarArriba2;
-                    }
-                    if (spriteActual == 3){
-                        image = rodarArriba3;
-                    }
-                }else {
-                    if (spriteActual == 1) {
-                        image = arriba1;
-                    }
-                    if (spriteActual == 2) {
-                        image = arriba2;
-                    }
-                    if (spriteActual == 3){
-                        image = arriba1;
-                    }
-                }
+
+                image = getImage(image, rodarArriba1, rodarArriba2, rodarArriba3, arriba1, arriba2);
             }
             case "abajo" -> {
-                if (tienePezGlobo && inputs.spacePressed){
-                    if (spriteActual == 1){
-                        image = rodarAbajo1;
-                    }
-                    if (spriteActual == 2){
-                        image = rodarAbajo2;
-                    }
-                    if (spriteActual == 3){
-                        image = rodarAbajo3;
-                    }
-                }else {
-                    if (spriteActual == 1) {
-                        image = abajo1;
-                    }
-                    if (spriteActual == 2) {
-                        image = abajo2;
-                    }
-                    if (spriteActual == 3){
-                        image = abajo1;
-                    }
-                }
+                image = getImage(image, rodarAbajo1, rodarAbajo2, rodarAbajo3, abajo1, abajo2);
             }
             case "izquierda" -> {
-                if (tienePezGlobo && inputs.spacePressed){
-                    if (spriteActual == 1){
-                        image = rodarIzquierda1;
-                    }
-                    if (spriteActual == 2){
-                        image = rodarIzquierda2;
-                    }
-                    if (spriteActual == 3){
-                        image = rodarIzquierda3;
-                    }
-                }else {
-                    if (spriteActual == 1) {
-                        image = izquierda1;
-                    }
-                    if (spriteActual == 2) {
-                        image = izquierda2;
-                    }
-                    if (spriteActual == 3){
-                        image = izquierda1;
-                    }
-                }
+                image = getImage(image, rodarIzquierda1, rodarIzquierda2, rodarIzquierda3, izquierda1, izquierda2);
             }
             case "derecha" -> {
-                if (tienePezGlobo && inputs.spacePressed){
-                    if (spriteActual == 1){
-                        image = rodarDerecha1;
-                    }
-                    if (spriteActual == 2){
-                        image = rodarDerecha2;
-                    }
-                    if (spriteActual == 3){
-                        image = rodarDerecha3;
-                    }
-                }else {
-                    if (spriteActual == 1) {
-                        image = derecha1;
-                    }
-                    if (spriteActual == 2) {
-                        image = derecha2;
-                    }
-                    if (spriteActual == 3){
-                        image = derecha1;
-                    }
-                }
+                image = getImage(image, rodarDerecha1, rodarDerecha2, rodarDerecha3, derecha1, derecha2);
             }
         }
+        if (invencibleOn){ //Efecto visual de invencibilidad
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+        }
         g2.drawImage(image, xCamara, yCamara, null);
+        //Resetear efecto visual de invencibilidad
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+
         //DEBUG
         if (gamePanel.toogleHitboxes){
             g2.setColor(Color.red);
             g2.drawRect(xCamara+8,yCamara+16,32,32);
         }
 
+    }
+
+    private BufferedImage getImage(BufferedImage image, BufferedImage rodarArriba1, BufferedImage rodarArriba2, BufferedImage rodarArriba3, BufferedImage arriba1, BufferedImage arriba2) {
+        if (tienePezGlobo && inputs.spacePressed && puedeRodar){
+            if (spriteActual == 1){
+                image = rodarArriba1;
+            }
+            if (spriteActual == 2){
+                image = rodarArriba2;
+            }
+            if (spriteActual == 3){
+                image = rodarArriba3;
+            }
+        }else {
+            if (spriteActual == 1) {
+                image = arriba1;
+            }
+            if (spriteActual == 2) {
+                image = arriba2;
+            }
+            if (spriteActual == 3){
+                image = arriba1;
+            }
+        }
+        return image;
     }
 
 }

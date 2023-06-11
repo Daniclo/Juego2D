@@ -188,7 +188,7 @@ public class CheckColisiones {
             e.areaColision.x = e.xMundo + e.areaColision.x;
             e.areaColision.y = e.yMundo + e.areaColision.y;
 
-            //Conseguimos el área de colisión de la entidad colisionada (target)
+            //Conseguimos el área de colisión de la entidad colisionada (j)
             j.areaColision.x = j.xMundo + j.areaColision.x;
             j.areaColision.y = j.yMundo + j.areaColision.y;
 
@@ -238,6 +238,16 @@ public class CheckColisiones {
             if (j != e){
                 e.colisionOn = true;
                 j.colisionOn = true;
+                if (e.tipoEntidad == 2){
+                    for (int i = 0;i<gamePanel.enemigos.length;i++){
+                        if (gamePanel.enemigos[i] != null){
+                            if (e.nombre.equals(gamePanel.enemigos[i].nombre)){
+                                establecerDMGColisionEnemigo(i);
+                            }
+                        }
+                    }
+
+                }
             }
         }
 
@@ -252,7 +262,7 @@ public class CheckColisiones {
         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
             if (gamePanel.items[i].colision){
                 e.colisionOn = true;
-                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed){ //Si el objeto es una roca, comprueba si debe romperlo
+                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed && gamePanel.jugador.puedeRodar){ //Si el objeto es una roca, comprueba si debe romperlo
                     gamePanel.items[i].colision = false;
                     gamePanel.items[i].sprite = gamePanel.items[i].sprite2;
                     gamePanel.reproducirSonido(2);
@@ -262,14 +272,31 @@ public class CheckColisiones {
     }
     private void establecerDMGColisionEnemigo(int i){
 
+        //Este método comprueba si el jugador está colisionando con un enemigo, y en ese caso detecta de que enemigo se trata para saber
+        //cuanta vida quitarle al jugador. Además gestiona los frames de invencibilidad junto con el método update del jugador.
+
         if (gamePanel.jugador.areaColision.intersects(gamePanel.enemigos[i].areaColision)){
             String nombre = gamePanel.enemigos[i].nombre;
             switch (nombre){
                 case "Rana" -> {
-                    gamePanel.jugador.vida--;
-                    gamePanel.reproducirSonido(3);
+                    if (gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed && gamePanel.jugador.puedeRodar){
+                        gamePanel.enemigos[i].vida--;
+                        gamePanel.reproducirSonido(3);
+                        gamePanel.enemigos[i].invencibleOn = true;
+                        gamePanel.jugador.invencibleOn = true;
+                        gamePanel.jugador.puedeRodar = false;
+                        //DEBUG
+                        System.out.println(gamePanel.enemigos[i].contadorInvencible);
+                    }else {
+                        if (!gamePanel.jugador.invencibleOn){
+                            gamePanel.jugador.vida--;
+                            gamePanel.reproducirSonido(3);
+                            gamePanel.jugador.invencibleOn = true;
+                        }
+                    }
                 }
             }
+
         }
 
     }

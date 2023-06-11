@@ -9,8 +9,11 @@ public class NPC_Patrisio extends Entidad{
         super(gamePanel);
         apuntandoA = "abajo";
         speed = 4;
+        vidaMaxima = 3;
+        vida = vidaMaxima;
         getSprites();
         setDialogos();
+        tipoEntidad = 1; //Es un npc
     }
 
     public void getSprites(){ //Inicializamos los sprites del npc

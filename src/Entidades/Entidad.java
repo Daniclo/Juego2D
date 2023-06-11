@@ -25,6 +25,10 @@ public class Entidad {
     public int areaColisionDefaultX, areaColisionDefaultY; //Area de colisión de la entidad
     public boolean colisionOn = false; //Determina si colisiona o no
     public int contadorAcciones = 0; //Esta variable permite definir el tiempo que tardará un npc en hacer su próxima acción.
+    public boolean invencibleOn = false; //Indica si los frames de invencibilidad están activos.
+    public int contadorInvencible = 0; //Indica cuantos ticks quedan para que acaben los frames de invencibilidad.
+    public int tipoEntidad; //0 = jugador, 1 = npc, 2 = enemigo.
+    public boolean muerte = false; //Determina si la entidad debe desaparecer.
 
     //DIÁLOGOS
     String[] dialogos = new String[20]; //Este array define el número de diálogos que puede tener un npc.
@@ -141,6 +145,21 @@ public class Entidad {
             contadorSprite = 0;
         }
 
+        //Muerte:
+        if (this != gamePanel.jugador){
+            if (vida == 0){
+                muerte = true;
+            }
+        }
+        //Invencibilidad
+        if (invencibleOn){
+            contadorInvencible++;
+            if (contadorInvencible>750){
+                invencibleOn = false;
+                contadorInvencible = 0;
+            }
+        }
+
     }
 
     public void dibujar(Graphics2D g2) { //Dibuja a la entidad
@@ -208,13 +227,19 @@ public class Entidad {
                     }
                 }
             }
+            if (invencibleOn){ //Efecto visual de invencibilidad
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
+            }
             g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites, gamePanel.tamanyoFinalSprites, null);
+
             //DEBUG
             if (gamePanel.toogleHitboxes){
                 g2.setColor(Color.red);
                 g2.drawRect(xCamara+8,yCamara+16,32,32);
             }
         }
+        //Resetear efecto visual de invencibilidad
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
     }
 
 }

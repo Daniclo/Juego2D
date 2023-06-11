@@ -133,9 +133,12 @@ public class GamePanel extends JPanel implements Runnable{
                 }
             }
             //Enemigos
-            for (Entidad enemigo : enemigos){
-                if (enemigo != null){
-                    enemigo.actualizar();
+            for (int i=0;i<enemigos.length;i++){
+                if (enemigos[i] != null){
+                    enemigos[i].actualizar();
+                    if (enemigos[i].muerte){
+                        enemigos[i] = null;
+                    }
                 }
             }
 

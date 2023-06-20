@@ -283,10 +283,11 @@ public class CheckColisiones {
                         gamePanel.enemigos[i].vida--;
                         gamePanel.reproducirSonido(3);
                         gamePanel.enemigos[i].invencibleOn = true;
+                        if (gamePanel.enemigos[i].vida <= 0){
+                            gamePanel.enemigos[i].muerte = true;
+                        }
                         gamePanel.jugador.invencibleOn = true;
                         gamePanel.jugador.puedeRodar = false;
-                        //DEBUG
-                        System.out.println(gamePanel.enemigos[i].contadorInvencible);
                     }else {
                         if (!gamePanel.jugador.invencibleOn){
                             gamePanel.jugador.vida--;

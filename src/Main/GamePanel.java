@@ -31,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable{
     public final int maxMundoFila = 18;
 
     int fps = 60; //Límite máximo de FPS que queremos que se reproduzcan
+    Graphics2D g2;
 
     //Clases que gestionan el sistema de juego
     InputsTeclado inputs = new InputsTeclado(this);
@@ -135,9 +136,12 @@ public class GamePanel extends JPanel implements Runnable{
             //Enemigos
             for (int i=0;i<enemigos.length;i++){
                 if (enemigos[i] != null){
-                    enemigos[i].actualizar();
-                    if (enemigos[i].muerte){
-                        enemigos[i] = null;
+                    if (!enemigos[i].muerte){
+                        enemigos[i].actualizar();
+                    }else {
+                        if (enemigos[i].finAnimacionMuerte){
+                            enemigos[i] = null;
+                        }
                     }
                 }
             }
@@ -148,7 +152,7 @@ public class GamePanel extends JPanel implements Runnable{
             //}
         }
         if (gameState == pauseState){
-            System.out.println("Pausa");
+            //System.out.println("Pausa");
             //detenerMusica();
         }
         if (gameState == dialogueState){
@@ -162,7 +166,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         //La clase Graphics2D extiende la clase Graphics y da más control sobre ellas para renderizar 2D.
         super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
+        g2 = (Graphics2D) g;
 
         //DEBUG
         long comienzoRender;

@@ -29,6 +29,8 @@ public class Entidad {
     public int contadorInvencible = 0; //Indica cuantos ticks quedan para que acaben los frames de invencibilidad.
     public int tipoEntidad; //0 = jugador, 1 = npc, 2 = enemigo.
     public boolean muerte = false; //Determina si la entidad debe desaparecer.
+    public int contadorMuerte = 0; //Contador para la animación de muerte de los enemigos.
+    public boolean finAnimacionMuerte = false; //Cuando esta variable es true, elimina la entidad porque ya ha finalizado la animación de muerte.
 
     //DIÁLOGOS
     String[] dialogos = new String[20]; //Este array define el número de diálogos que puede tener un npc.
@@ -122,6 +124,7 @@ public class Entidad {
 
         colisionOn = false;
         gamePanel.checkColisiones.checkTile(this);
+        gamePanel.checkColisiones.checkItem(this);
         gamePanel.checkColisiones.checkEntitdad(this, gamePanel.npcs);
         gamePanel.checkColisiones.checkEntitdad(this, gamePanel.enemigos);
         gamePanel.checkColisiones.checkJugador(this,gamePanel.jugador);
@@ -151,10 +154,11 @@ public class Entidad {
                 muerte = true;
             }
         }
+
         //Invencibilidad
         if (invencibleOn){
             contadorInvencible++;
-            if (contadorInvencible>750){
+            if (contadorInvencible>60){
                 invencibleOn = false;
                 contadorInvencible = 0;
             }
@@ -227,10 +231,21 @@ public class Entidad {
                     }
                 }
             }
+            //DEBUG
+            //if (!invencibleOn){
+            //    System.out.println("No transparente");
+            //}else {
+            //    System.out.println("transparente");
+            //}
             if (invencibleOn){ //Efecto visual de invencibilidad
                 g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
             }
+            if (muerte){
+                morir(g2);
+            }
             g2.drawImage(image, xCamara, yCamara, gamePanel.tamanyoFinalSprites, gamePanel.tamanyoFinalSprites, null);
+            //Resetear efecto visual de invencibilidad
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
 
             //DEBUG
             if (gamePanel.toogleHitboxes){
@@ -238,8 +253,45 @@ public class Entidad {
                 g2.drawRect(xCamara+8,yCamara+16,32,32);
             }
         }
-        //Resetear efecto visual de invencibilidad
-        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+    }
+
+    public void morir(Graphics2D g2){
+
+        contadorMuerte++;
+
+        for (int i = 0; i < contadorMuerte ; i++){
+            if (contadorMuerte <= 5){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+            }
+            if (contadorMuerte > 5 && contadorMuerte <= 10){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+            }
+            if (contadorMuerte > 10 && contadorMuerte <= 15){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+            }
+            if (contadorMuerte > 15 && contadorMuerte <= 20){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+            }
+            if (contadorMuerte > 20 && contadorMuerte <= 25){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+            }
+            if (contadorMuerte > 25 && contadorMuerte <= 30){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+            }
+            if (contadorMuerte > 30 && contadorMuerte <= 35){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+            }
+            if (contadorMuerte > 35 && contadorMuerte <= 40){
+                g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+            }
+            if (contadorMuerte > 40){
+                finAnimacionMuerte = true;
+            }
+
+        }
+        //DEBUG
+        System.out.println(contadorMuerte);
+
     }
 
 }

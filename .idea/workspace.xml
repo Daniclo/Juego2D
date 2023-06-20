@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Daño implementado">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Matar añadido">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
     </list>
@@ -190,7 +187,19 @@
       <workItem from="1686415979798" duration="503000" />
       <workItem from="1686418298866" duration="17000" />
       <workItem from="1686490578072" duration="1219000" />
-      <workItem from="1686501188419" duration="7332000" />
+      <workItem from="1686501188419" duration="7938000" />
+      <workItem from="1686566862686" duration="660000" />
+      <workItem from="1686736878231" duration="1820000" />
+      <workItem from="1686762158371" duration="3100000" />
+      <workItem from="1686765307619" duration="931000" />
+      <workItem from="1686767566619" duration="448000" />
+      <workItem from="1686853276636" duration="10000" />
+      <workItem from="1687095108274" duration="29000" />
+      <workItem from="1687113308267" duration="18000" />
+      <workItem from="1687177128803" duration="514000" />
+      <workItem from="1687194076881" duration="1772000" />
+      <workItem from="1687196708269" duration="297000" />
+      <workItem from="1687247876446" duration="1321000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -318,7 +327,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686156564525</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="Matar añadido">
+      <created>1686511257573</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1686511257573</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -354,6 +370,7 @@
     <MESSAGE value="RANA AÑADIDA" />
     <MESSAGE value="BUGFIX INTERACCIONES" />
     <MESSAGE value="Daño implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Daño implementado" />
+    <MESSAGE value="Matar añadido" />
+    <option name="LAST_COMMIT_MESSAGE" value="Matar añadido" />
   </component>
 </project>

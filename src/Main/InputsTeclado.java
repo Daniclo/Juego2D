@@ -15,7 +15,7 @@ public class InputsTeclado implements KeyListener {
 
     //Estos valores booleanos indican cuando una tecla está siendo pulsada o no. Usaremos los métodos para
     //actualizarlos al pulsar y soltar las  teclas.
-    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, ePressed;
+    public boolean upPressed, downPressed, leftPressed, rightPressed, spacePressed, zPressed, xPressed;
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -30,25 +30,28 @@ public class InputsTeclado implements KeyListener {
 
         //PLAYSTATE
         if (gamePanel.gameState == gamePanel.playState){
-            if (code == KeyEvent.VK_W){
+            if (code == KeyEvent.VK_UP){
                 upPressed = true;
             }
-            if (code == KeyEvent.VK_A){
+            if (code == KeyEvent.VK_LEFT){
                 leftPressed = true;
             }
-            if (code == KeyEvent.VK_S){
+            if (code == KeyEvent.VK_DOWN){
                 downPressed = true;
             }
-            if (code == KeyEvent.VK_D){
+            if (code == KeyEvent.VK_RIGHT){
                 rightPressed = true;
             }
             if (code == KeyEvent.VK_SPACE){
                 spacePressed = true;
             }
-            if (code == KeyEvent.VK_E){
-                ePressed = true;
+            if (code == KeyEvent.VK_Z){
+                zPressed = true;
             }
-            if (code == KeyEvent.VK_Q){
+            if (code == KeyEvent.VK_X){
+                xPressed = true;
+            }
+            if (code == KeyEvent.VK_H){
                 if (gamePanel.toogleHitboxes){
                     gamePanel.toogleHitboxes = false;
                 }else {
@@ -58,7 +61,7 @@ public class InputsTeclado implements KeyListener {
         }
         //DIALOGUESTATE
         if (gamePanel.gameState == gamePanel.dialogueState){
-            if (code == KeyEvent.VK_E){
+            if (code == KeyEvent.VK_Z){
                 gamePanel.gameState = gamePanel.playState;
                 gamePanel.ui.dialogoActual = null;
             }
@@ -80,23 +83,26 @@ public class InputsTeclado implements KeyListener {
 
         int code = e.getKeyCode(); //en este caso, vamos a asignar el valor a false al soltar la tecla.
 
-        if (code == KeyEvent.VK_W){
+        if (code == KeyEvent.VK_UP){
             upPressed = false;
         }
-        if (code == KeyEvent.VK_A){
+        if (code == KeyEvent.VK_LEFT){
             leftPressed = false;
         }
-        if (code == KeyEvent.VK_S){
+        if (code == KeyEvent.VK_DOWN){
             downPressed = false;
         }
-        if (code == KeyEvent.VK_D){
+        if (code == KeyEvent.VK_RIGHT){
             rightPressed = false;
         }
         if (code == KeyEvent.VK_SPACE){
             spacePressed = false;
         }
-        if (code == KeyEvent.VK_E){
-            ePressed = false;
+        if (code == KeyEvent.VK_Z){
+            zPressed = false;
+        }
+        if (code == KeyEvent.VK_X){
+            xPressed = false;
         }
 
     }

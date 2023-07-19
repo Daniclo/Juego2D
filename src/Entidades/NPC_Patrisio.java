@@ -81,7 +81,7 @@ public class NPC_Patrisio extends Entidad{
                             //en bucle el último diálogo definido una vez que los has leído todos.
 
         //Esta línea arregla el bug de pulsar demasiado fuerte la E.
-        gamePanel.jugador.inputs.ePressed = false;
+        gamePanel.jugador.inputs.zPressed = false;
         //Este if hace que el npc siempre se quede diciendo su última frase.
         if (dialogoAcabado){
             indexDialogo = 2;

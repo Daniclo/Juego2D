@@ -228,8 +228,22 @@ public class CheckColisiones {
             if (target[i] != e){
                 e.colisionOn = true;
                 target[i].colisionOn = true;
+                if (e.equals(gamePanel.jugador.proyectil)){
+                    String nombre = gamePanel.enemigos[i].nombre;
+                    switch (nombre){
+                        case "Rana" -> {
+                            gamePanel.enemigos[i].vida -= gamePanel.jugador.proyectil.ataque;
+                            gamePanel.reproducirSonido(3);
+                            gamePanel.enemigos[i].invencibleOn = true;
+                            if (gamePanel.enemigos[i].vida <= 0){
+                                gamePanel.enemigos[i].muerte = true;
+                            }
+                        }
+                    }
+                }
             }
         }
+
     }
     private void establecerColisionJugador(Entidad e,Jugador j){
 
@@ -275,12 +289,14 @@ public class CheckColisiones {
         //Este método comprueba si el jugador está colisionando con un enemigo, y en ese caso detecta de que enemigo se trata para saber
         //cuanta vida quitarle al jugador. Además gestiona los frames de invencibilidad junto con el método update del jugador.
 
+        String nombre;
+
         if (gamePanel.jugador.areaColision.intersects(gamePanel.enemigos[i].areaColision)){
-            String nombre = gamePanel.enemigos[i].nombre;
+            nombre = gamePanel.enemigos[i].nombre;
             switch (nombre){
                 case "Rana" -> {
                     if (gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed && gamePanel.jugador.puedeRodar){
-                        gamePanel.enemigos[i].vida--;
+                        gamePanel.enemigos[i].vida -= gamePanel.jugador.ataque;
                         gamePanel.reproducirSonido(3);
                         gamePanel.enemigos[i].invencibleOn = true;
                         if (gamePanel.enemigos[i].vida <= 0){
@@ -290,14 +306,13 @@ public class CheckColisiones {
                         gamePanel.jugador.puedeRodar = false;
                     }else {
                         if (!gamePanel.jugador.invencibleOn){
-                            gamePanel.jugador.vida--;
+                            gamePanel.jugador.vida -= gamePanel.enemigos[i].ataque;
                             gamePanel.reproducirSonido(3);
                             gamePanel.jugador.invencibleOn = true;
                         }
                     }
                 }
             }
-
         }
 
     }

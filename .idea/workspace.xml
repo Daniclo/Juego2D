@@ -4,11 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Matar añadido">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Animación de muerte añadida">
+      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/sonidos/SonidoProyectil.wav" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Entidades/Proyectil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,31 +60,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "extract.method.default.visibility": "private",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
+      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\proyectiles" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\enemigos" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\UI" />
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\items" />
-      <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\tiles" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\enemigos\Rana_andar" />
@@ -199,7 +211,16 @@
       <workItem from="1687177128803" duration="514000" />
       <workItem from="1687194076881" duration="1772000" />
       <workItem from="1687196708269" duration="297000" />
-      <workItem from="1687247876446" duration="1321000" />
+      <workItem from="1687247876446" duration="2424000" />
+      <workItem from="1687783416865" duration="4815000" />
+      <workItem from="1688576732917" duration="4000" />
+      <workItem from="1688852887090" duration="10000" />
+      <workItem from="1689198129352" duration="7000" />
+      <workItem from="1689198406732" duration="577000" />
+      <workItem from="1689417118914" duration="13000" />
+      <workItem from="1689543425748" duration="8000" />
+      <workItem from="1689544518192" duration="729000" />
+      <workItem from="1689717582073" duration="9872000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -334,7 +355,14 @@
       <option name="project" value="LOCAL" />
       <updated>1686511257573</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Animación de muerte añadida">
+      <created>1687249268065</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1687249268065</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -371,6 +399,18 @@
     <MESSAGE value="BUGFIX INTERACCIONES" />
     <MESSAGE value="Daño implementado" />
     <MESSAGE value="Matar añadido" />
-    <option name="LAST_COMMIT_MESSAGE" value="Matar añadido" />
+    <MESSAGE value="Animación de muerte añadida" />
+    <option name="LAST_COMMIT_MESSAGE" value="Animación de muerte añadida" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Entidades/Jugador.java</url>
+          <line>61</line>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

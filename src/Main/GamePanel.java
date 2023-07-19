@@ -7,6 +7,7 @@ import Items.Item;
 import Tiles.TileManager;
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -49,6 +50,7 @@ public class GamePanel extends JPanel implements Runnable{
     public Item[] items = new Item[10]; //Indica el número de objetos que podemos incluir en en pantalla a la vez. Ya que al pickear un objeto desaparece
     public Entidad[] npcs = new Entidad[10]; //Indica el número de entidades que pueden haber a la vez en el mapa. Igual que los objetos.
     public Entidad[] enemigos = new Entidad[20]; //Número de enemigos que pueden haber a la vez en el mapa.
+    public ArrayList<Entidad> proyectiles = new ArrayList<>(); //Número de proyectiles que se pueden lanzar simultáneamente.
     public Mensaje msg = new Mensaje(this); //Instanciación de la clase msg que permite mostrar mensajes por pantalla.
 
     //Game state
@@ -145,6 +147,15 @@ public class GamePanel extends JPanel implements Runnable{
                     }
                 }
             }
+            //Proyectiles
+            for (int i = 0; i < proyectiles.size(); i++){
+                if (proyectiles.get(i) != null){
+                    proyectiles.get(i).actualizar();
+                    if (proyectiles.get(i).muerte){
+                        proyectiles.remove(i);
+                    }
+                }
+            }
 
             //Por algún motivo, la música se reproduce siempre desde el punto de inicio y no donde se detuvo.
             //if (!musica.clip.isActive()){
@@ -193,6 +204,12 @@ public class GamePanel extends JPanel implements Runnable{
         for (Entidad enemigo : enemigos){
             if (enemigo != null){
                 enemigo.dibujar(g2);
+            }
+        }
+        //Proyectiles
+        for (Entidad proyectil : proyectiles){
+            if (proyectil != null){
+                proyectil.dibujar(g2);
             }
         }
 

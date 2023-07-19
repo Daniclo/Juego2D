@@ -13,6 +13,7 @@ public class Rana extends Entidad {
         speed = 3;
         vidaMaxima = 3;
         vida = vidaMaxima;
+        ataque = 1;
         getSprites();
         apuntandoA = "abajo";
         tipoEntidad = 2; //Es un enemigo.

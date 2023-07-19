@@ -17,7 +17,7 @@ public class Entidad {
     public String nombre;
     public int xMundo, yMundo; //Posición de la entidad en el mundo
     public int speed; //Velocidad a la que se desplaza la entidad
-    public BufferedImage arriba1, arriba2, abajo1, abajo2, izquierda1, izquierda2, derecha1, derecha2; //Almacena las animaciones de movimiento de las entidades
+    public BufferedImage arriba1, arriba2, abajo1, abajo2, izquierda1, izquierda2, derecha1, derecha2, arriba3, abajo3, izquierda3, derecha3; //Almacena las animaciones de movimiento de las entidades
     public String apuntandoA; //Almacena la información de hacia donde está mirando la entidad
     public int contadorSprite = 0; //Este contador permite cambiar de sprites cada cierto tiempo
     public int spriteActual = 1; //Indica que sprite está usando la entidad actualmente
@@ -31,6 +31,7 @@ public class Entidad {
     public boolean muerte = false; //Determina si la entidad debe desaparecer.
     public int contadorMuerte = 0; //Contador para la animación de muerte de los enemigos.
     public boolean finAnimacionMuerte = false; //Cuando esta variable es true, elimina la entidad porque ya ha finalizado la animación de muerte.
+    public Proyectil proyectil;
 
     //DIÁLOGOS
     String[] dialogos = new String[20]; //Este array define el número de diálogos que puede tener un npc.
@@ -40,6 +41,7 @@ public class Entidad {
     //Status de la entidad
     public int vidaMaxima;
     public int vida;
+    public int ataque;
 
     public Entidad(GamePanel gamePanel){
 
@@ -106,7 +108,7 @@ public class Entidad {
                             //en bucle el último diálogo definido una vez que los has leído todos.
 
         //Esta línea arregla el bug de pulsar demasiado fuerte la E.
-        gamePanel.jugador.inputs.ePressed = false;
+        gamePanel.jugador.inputs.zPressed = false;
         if (dialogos[indexDialogo] != null){
             gamePanel.ui.dialogoActual = dialogos[indexDialogo];
             indexDialogo++;
@@ -290,7 +292,7 @@ public class Entidad {
 
         }
         //DEBUG
-        System.out.println(contadorMuerte);
+        //System.out.println(contadorMuerte);
 
     }
 

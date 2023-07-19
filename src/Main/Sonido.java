@@ -17,6 +17,7 @@ public class Sonido {
         sonidosURL[1] = getClass().getResource("/sonidos/Recoger objeto.wav");
         sonidosURL[2] = getClass().getResource("/sonidos/Romper-roca.wav");
         sonidosURL[3] = getClass().getResource("/sonidos/DamageJugador.wav");
+        sonidosURL[4] = getClass().getResource("/sonidos/SonidoProyectil.wav");
 
     }
 

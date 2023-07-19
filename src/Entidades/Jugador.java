@@ -23,6 +23,9 @@ public class Jugador extends Entidad{
     public boolean puedeRodar = true;
     public int contadorRodar = 0;
 
+    //COOLDOWN BOLA DE NIEVE
+    public int contadorProyectil = 80;
+
     public Jugador(GamePanel gamePanel, InputsTeclado inputs){ //Instanciamos los inputs y el panel de juego para poder
                                                                 //utilizarlos en esta clase
 
@@ -50,6 +53,8 @@ public class Jugador extends Entidad{
         apuntandoA = "abajo";
         vidaMaxima = 5;
         vida = vidaMaxima;
+        ataque = 1;
+        proyectil = new AtaqueHielo(gamePanel);
     }
 
     public void getSpritesJugador(){ //Inicializamos los sprites del jugador
@@ -81,6 +86,8 @@ public class Jugador extends Entidad{
 
     @Override
     public void actualizar(){
+
+        //MOVIMIENTO
         if (inputs.upPressed || inputs.downPressed || inputs.rightPressed || inputs.leftPressed){ //Este if hace que las animaciones de movimiento no se activen mientras
                                                                                                     //el personaje está quieto.
 
@@ -151,8 +158,17 @@ public class Jugador extends Entidad{
             }
         }
 
+        //Gestión de bolas de hielo
+        if (inputs.xPressed && contadorProyectil >= 80){
+            proyectil.set(xMundo, yMundo, apuntandoA, false, this);
+            gamePanel.proyectiles.add(proyectil);
+            gamePanel.reproducirSonido(4);
+            contadorProyectil = 0;
+        }
+
+
         //Interacciones
-        if (inputs.ePressed){
+        if (inputs.zPressed){
 
             int item = gamePanel.checkInteraccion.checkItem(this);
             //DEBUG

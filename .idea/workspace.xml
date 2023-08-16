@@ -1,25 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="Juego2D:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Animación de muerte añadida">
-      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/proyectiles/Bola3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/sonidos/SonidoProyectil.wav" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Entidades/Proyectil.java" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Proyectil implementado">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Juego2D_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Resources/META-INF/MANIFEST.MF" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Entidad.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Entidad.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/enemigos/Rana.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/Proyectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Proyectil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/InputsTeclado.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/InputsTeclado.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/Sonido.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Sonido.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +63,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
     "extract.method.default.visibility": "private",
     "git-widget-placeholder": "master",
@@ -73,9 +73,9 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
+    "project.structure.side.proportion": "0.46781608",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -220,7 +220,17 @@
       <workItem from="1689417118914" duration="13000" />
       <workItem from="1689543425748" duration="8000" />
       <workItem from="1689544518192" duration="729000" />
-      <workItem from="1689717582073" duration="9872000" />
+      <workItem from="1689717582073" duration="10054000" />
+      <workItem from="1689766835370" duration="179000" />
+      <workItem from="1689771154151" duration="1966000" />
+      <workItem from="1689814815392" duration="569000" />
+      <workItem from="1689815454221" duration="11000" />
+      <workItem from="1690120011992" duration="132000" />
+      <workItem from="1690134324114" duration="69000" />
+      <workItem from="1690135271885" duration="53000" />
+      <workItem from="1690202415065" duration="1257000" />
+      <workItem from="1690386504612" duration="11000" />
+      <workItem from="1692183835282" duration="464000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -362,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1687249268065</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Proyectil implementado">
+      <created>1689729397573</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1689729397573</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -400,14 +417,15 @@
     <MESSAGE value="Daño implementado" />
     <MESSAGE value="Matar añadido" />
     <MESSAGE value="Animación de muerte añadida" />
-    <option name="LAST_COMMIT_MESSAGE" value="Animación de muerte añadida" />
+    <MESSAGE value="Proyectil implementado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Proyectil implementado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Entidades/Jugador.java</url>
-          <line>61</line>
+          <line>59</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

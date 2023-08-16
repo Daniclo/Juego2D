@@ -2,23 +2,19 @@ package Entidades;
 
 import Main.GamePanel;
 
-import java.awt.image.BufferedImage;
-
 public class Proyectil extends Entidad{
-
-    private Entidad user; //Determina que entidad lanza el proyectil.
 
     public Proyectil(GamePanel gamePanel) {
         super(gamePanel);
     }
 
-    public void set(int xMundo, int yMundo, String apuntandoA, boolean muerte, Entidad user){
+    public void set(int xMundo, int yMundo, String apuntandoA, boolean muerte){
 
         this.xMundo = xMundo;
         this.yMundo = yMundo;
         this.apuntandoA = apuntandoA;
         this.muerte = muerte;
-        this.user = user;
+        //Determina que entidad lanza el proyectil.
         this.vida = this.vidaMaxima;
 
     }
@@ -59,7 +55,7 @@ public class Proyectil extends Entidad{
         gamePanel.checkColisiones.checkEntitdad(this, gamePanel.enemigos);
         if (colisionOn){
             vida = 0;
-            gamePanel.jugador.contadorProyectil = 80;
+            gamePanel.jugador.contadorProyectil = 75;
         }
     }
 

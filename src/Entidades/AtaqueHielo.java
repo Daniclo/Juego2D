@@ -9,8 +9,8 @@ public class AtaqueHielo extends Proyectil{
         super(gamePanel);
         this.gamePanel = gamePanel;
         nombre = "Hielo";
-        speed = 7;
-        vidaMaxima = 80;
+        speed = 10;
+        vidaMaxima = 75;
         vida = vidaMaxima;
         ataque = 2;
         getSprites();

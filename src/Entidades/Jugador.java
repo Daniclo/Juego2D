@@ -20,8 +20,6 @@ public class Jugador extends Entidad{
 
     //OBJETOS QUE PUEDE CONSEGUIR EL JUGADOR
     public boolean tienePezGlobo = false;
-    public boolean puedeRodar = true;
-    public int contadorRodar = 0;
 
     //COOLDOWN BOLA DE NIEVE
     public int contadorProyectil = 80;
@@ -159,8 +157,8 @@ public class Jugador extends Entidad{
         }
 
         //Gestión de bolas de hielo
-        if (inputs.xPressed && contadorProyectil >= 80){
-            proyectil.set(xMundo, yMundo, apuntandoA, false, this);
+        if (inputs.xPressed && contadorProyectil >= 75){
+            proyectil.set(xMundo, yMundo, apuntandoA, false);
             gamePanel.proyectiles.add(proyectil);
             gamePanel.reproducirSonido(4);
             contadorProyectil = 0;
@@ -203,34 +201,18 @@ public class Jugador extends Entidad{
             }
         }
 
-        //Cooldown ataque
-        if (!puedeRodar){
-            contadorRodar++;
-            if (contadorRodar>250){
-                puedeRodar = true;
-                contadorRodar = 0;
-            }
-        }
-
     }
     public void dibujar(Graphics2D g2){ //Asignamos los sprites adecuados según la dirección en cada actualización
 
+        //Comprueba cual de los 2 sprites tiene que usar ahora y lo asigna en cada actualización para cada dirección.
+        //Además, si tienes pez globo y estás corriendo cambia los sprites.
+
         BufferedImage image = null;
         switch (apuntandoA) {
-            case "arriba" -> {//Comprueba cual de los 2 sprites tiene que usar ahora y lo asigna en cada actualización para cada dirección.
-                                //Además, si tienes pez globo y estás corriendo cambia los sprites.
-
-                image = getImage(image, rodarArriba1, rodarArriba2, rodarArriba3, arriba1, arriba2);
-            }
-            case "abajo" -> {
-                image = getImage(image, rodarAbajo1, rodarAbajo2, rodarAbajo3, abajo1, abajo2);
-            }
-            case "izquierda" -> {
-                image = getImage(image, rodarIzquierda1, rodarIzquierda2, rodarIzquierda3, izquierda1, izquierda2);
-            }
-            case "derecha" -> {
-                image = getImage(image, rodarDerecha1, rodarDerecha2, rodarDerecha3, derecha1, derecha2);
-            }
+            case "arriba" -> image = getImage(image, rodarArriba1, rodarArriba2, rodarArriba3, arriba1, arriba2);
+            case "abajo" -> image = getImage(image, rodarAbajo1, rodarAbajo2, rodarAbajo3, abajo1, abajo2);
+            case "izquierda" -> image = getImage(image, rodarIzquierda1, rodarIzquierda2, rodarIzquierda3, izquierda1, izquierda2);
+            case "derecha" -> image = getImage(image, rodarDerecha1, rodarDerecha2, rodarDerecha3, derecha1, derecha2);
         }
         if (invencibleOn){ //Efecto visual de invencibilidad
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.3f));
@@ -248,7 +230,7 @@ public class Jugador extends Entidad{
     }
 
     private BufferedImage getImage(BufferedImage image, BufferedImage rodarArriba1, BufferedImage rodarArriba2, BufferedImage rodarArriba3, BufferedImage arriba1, BufferedImage arriba2) {
-        if (tienePezGlobo && inputs.spacePressed && puedeRodar){
+        if (tienePezGlobo && inputs.spacePressed){
             if (spriteActual == 1){
                 image = rodarArriba1;
             }

@@ -276,7 +276,7 @@ public class CheckColisiones {
         if (e.areaColision.intersects(gamePanel.items[i].areaColision)){
             if (gamePanel.items[i].colision){
                 e.colisionOn = true;
-                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed && gamePanel.jugador.puedeRodar){ //Si el objeto es una roca, comprueba si debe romperlo
+                if (gamePanel.items[i].nombre.equals("Roca") && gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed){ //Si el objeto es una roca, comprueba si debe romperlo
                     gamePanel.items[i].colision = false;
                     gamePanel.items[i].sprite = gamePanel.items[i].sprite2;
                     gamePanel.reproducirSonido(2);
@@ -295,21 +295,10 @@ public class CheckColisiones {
             nombre = gamePanel.enemigos[i].nombre;
             switch (nombre){
                 case "Rana" -> {
-                    if (gamePanel.jugador.tienePezGlobo && gamePanel.inputs.spacePressed && gamePanel.jugador.puedeRodar){
-                        gamePanel.enemigos[i].vida -= gamePanel.jugador.ataque;
+                    if (!gamePanel.jugador.invencibleOn){
+                        gamePanel.jugador.vida -= gamePanel.enemigos[i].ataque;
                         gamePanel.reproducirSonido(3);
-                        gamePanel.enemigos[i].invencibleOn = true;
-                        if (gamePanel.enemigos[i].vida <= 0){
-                            gamePanel.enemigos[i].muerte = true;
-                        }
                         gamePanel.jugador.invencibleOn = true;
-                        gamePanel.jugador.puedeRodar = false;
-                    }else {
-                        if (!gamePanel.jugador.invencibleOn){
-                            gamePanel.jugador.vida -= gamePanel.enemigos[i].ataque;
-                            gamePanel.reproducirSonido(3);
-                            gamePanel.jugador.invencibleOn = true;
-                        }
                     }
                 }
             }

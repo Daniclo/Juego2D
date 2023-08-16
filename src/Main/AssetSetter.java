@@ -6,6 +6,7 @@ import Items.ItemPezGlobo;
 import Items.Roca;
 
 public class AssetSetter {
+
     //Esta clase sirve para instanciar todos los items y similares
 
     GamePanel gamePanel;

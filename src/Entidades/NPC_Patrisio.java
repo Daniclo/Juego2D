@@ -71,9 +71,7 @@ public class NPC_Patrisio extends Entidad{
     }
     public void setDialogos(){ //Este método define todos los mensajes que el sistema puede mostrar.
 
-        this.dialogos[0] = "En 1614 un galeón japonés desembarcó \na orillas del río guadalquivir y el emperador \nse enamoró de una bella sevillana y se \nquedó allí a vivir.";
-        this.dialogos[1] = "Ahora, muchos años después, Paco Japón \nes el heredero al trono.";
-        this.dialogos[2] = "¿Esto es wakamole no?";
+        this.dialogos[0] = "Patrisio se fuerte.";
 
     }
     @Override

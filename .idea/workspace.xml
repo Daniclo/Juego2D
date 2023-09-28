@@ -9,16 +9,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Proyectil implementado">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/Juego2D_jar.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Resources/META-INF/MANIFEST.MF" afterDir="false" />
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Prototipo terminado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Resources/maps/MapaPruebas.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/AtaqueHielo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Jugador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Jugador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/Proyectil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/Proyectil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main/CheckColisiones.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/CheckColisiones.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,26 +52,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/Usuario/IdeaProjects/Juego2D/Resources/sonidos",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "project.structure.last.edited": "Artifacts",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.46781608",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Usuario/IdeaProjects/Juego2D/out/artifacts/Juego2D_jar/Juego2D.jar&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.46781608&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\sonidos" />
@@ -95,7 +90,7 @@
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\rodar" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Juego">
     <configuration name="Juego" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="Juego2D" />
@@ -103,6 +98,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Unnamed" type="JarApplication" nameIsGenerated="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/out/artifacts/Juego2D_jar/Juego2D.jar" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\Usuario\IdeaProjects\Juego2D" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="Juego2D:jar" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Juego" />
+      <item itemvalue="JAR Application.Unnamed" />
+    </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -231,6 +240,30 @@
       <workItem from="1690202415065" duration="1257000" />
       <workItem from="1690386504612" duration="11000" />
       <workItem from="1692183835282" duration="464000" />
+      <workItem from="1692184384057" duration="283000" />
+      <workItem from="1692185035735" duration="4517000" />
+      <workItem from="1693174712546" duration="7000" />
+      <workItem from="1693314938529" duration="184000" />
+      <workItem from="1693319620081" duration="45000" />
+      <workItem from="1693436591337" duration="13000" />
+      <workItem from="1693575381140" duration="9000" />
+      <workItem from="1693846037248" duration="636000" />
+      <workItem from="1694044141430" duration="9000" />
+      <workItem from="1694446090634" duration="52000" />
+      <workItem from="1694604313877" duration="86000" />
+      <workItem from="1694605283922" duration="593000" />
+      <workItem from="1694611165969" duration="107000" />
+      <workItem from="1695060013173" duration="72000" />
+      <workItem from="1695068989193" duration="594000" />
+      <workItem from="1695159730448" duration="192000" />
+      <workItem from="1695160928770" duration="594000" />
+      <workItem from="1695199037951" duration="260000" />
+      <workItem from="1695396432740" duration="60000" />
+      <workItem from="1695580368418" duration="208000" />
+      <workItem from="1695591364109" duration="26000" />
+      <workItem from="1695591433736" duration="7000" />
+      <workItem from="1695591494129" duration="3000" />
+      <workItem from="1695909142850" duration="300000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -379,7 +412,15 @@
       <option name="project" value="LOCAL" />
       <updated>1689729397573</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Prototipo terminado">
+      <option name="closed" value="true" />
+      <created>1692184493938</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1692184493938</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -418,7 +459,8 @@
     <MESSAGE value="Matar añadido" />
     <MESSAGE value="Animación de muerte añadida" />
     <MESSAGE value="Proyectil implementado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Proyectil implementado" />
+    <MESSAGE value="Prototipo terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Prototipo terminado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

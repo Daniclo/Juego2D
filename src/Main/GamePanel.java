@@ -3,8 +3,7 @@ package Main;
 import Entidades.Entidad;
 import Entidades.Jugador;
 import Entidades.Mensaje;
-import Items.Item;
-import Tiles.TileManager;
+
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;

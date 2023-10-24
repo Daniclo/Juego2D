@@ -2,8 +2,6 @@ package Main;
 
 import Entidades.NPC_Patrisio;
 import Entidades.enemigos.Rana;
-import Items.ItemPezGlobo;
-import Items.Roca;
 
 public class AssetSetter {
 

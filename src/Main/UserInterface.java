@@ -1,8 +1,5 @@
 package Main;
 
-import Items.Item;
-import Items.ItemPezVida;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
 

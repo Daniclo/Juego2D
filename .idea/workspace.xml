@@ -9,9 +9,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Prototipo terminado">
+    <list default="true" id="a5697638-32cc-4346-b770-e0f1a4561674" name="Changes" comment="Bug arreglado">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entidades/NPC_Patrisio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/ItemPezGlobo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ItemPezGlobo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/ItemPezVida.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/ItemPezVida.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Items/Roca.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Roca.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/AssetSetter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/AssetSetter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/GamePanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/GamePanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main/UserInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/UserInterface.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/Tile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/Tile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tiles/TileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main/TileManager.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,7 +75,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Artifacts&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.46781608&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;preferences.general&quot;,
@@ -90,7 +98,7 @@
       <recent name="C:\Users\Usuario\IdeaProjects\Juego2D\Resources\jugador\rodar" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Juego">
+  <component name="RunManager" selected="JAR Application.Unnamed">
     <configuration name="Juego" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Main.Main" />
       <module name="Juego2D" />
@@ -263,7 +271,11 @@
       <workItem from="1695591364109" duration="26000" />
       <workItem from="1695591433736" duration="7000" />
       <workItem from="1695591494129" duration="3000" />
-      <workItem from="1695909142850" duration="300000" />
+      <workItem from="1695909142850" duration="441000" />
+      <workItem from="1698157494567" duration="716000" />
+      <workItem from="1698158279843" duration="1555000" />
+      <workItem from="1698161288107" duration="620000" />
+      <workItem from="1698162605706" duration="4000" />
     </task>
     <task id="LOCAL-00001" summary="Movimiento del jugador y game loop a 60FPS">
       <created>1684102512944</created>
@@ -420,7 +432,15 @@
       <option name="project" value="LOCAL" />
       <updated>1692184493938</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Bug arreglado">
+      <option name="closed" value="true" />
+      <created>1695909574799</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1695909574799</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -460,7 +480,8 @@
     <MESSAGE value="Animación de muerte añadida" />
     <MESSAGE value="Proyectil implementado" />
     <MESSAGE value="Prototipo terminado" />
-    <option name="LAST_COMMIT_MESSAGE" value="Prototipo terminado" />
+    <MESSAGE value="Bug arreglado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bug arreglado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

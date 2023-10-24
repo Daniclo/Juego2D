@@ -1,6 +1,4 @@
-package Items;
-
-import Main.GamePanel;
+package Main;
 
 import javax.imageio.ImageIO;
 import java.io.IOException;

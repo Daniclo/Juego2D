@@ -1,4 +1,4 @@
-package Items;
+package Main;
 
 import Main.GamePanel;
 import Main.UtilityTool;

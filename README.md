@@ -5,7 +5,7 @@ This is my first shot at making a game. I did this some time ago using just Java
 
 For the game to work, Java SDK 17 or higher needs to be installed. You can download it for free here before executing the game: https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
 
-You can download the .exe file for the game here: https://drive.google.com/drive/folders/1P68Dof3yftwq49N7AvXi7uhv03XIkhlk?usp=drive_link
+You can play the game downloading this folder and executing the .exe file: https://drive.google.com/drive/folders/1P68Dof3yftwq49N7AvXi7uhv03XIkhlk?usp=drive_link
 
 How to play: 
 
@@ -17,7 +17,7 @@ Esta es mi primera toma de contacto con el desarrollo de videojuegos. Hice este 
 Para que el juego funcione, debes instalar Java SDK 17 o superior. Puedes descargarlo gratuitamente aquí antes de ejecutar el juego:
 https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html
 
-Puedes descargar el archivo .exe del juego aquí: https://drive.google.com/drive/folders/1P68Dof3yftwq49N7AvXi7uhv03XIkhlk?usp=drive_link
+Puedes jugar al juego descargando esta carpeta y ejecutando el archivo .exe: https://drive.google.com/drive/folders/1P68Dof3yftwq49N7AvXi7uhv03XIkhlk?usp=drive_link
 
 Como jugar:
 
